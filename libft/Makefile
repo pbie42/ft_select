@@ -15,8 +15,13 @@ FLAG = -Wall -Wextra -Werror
 NAME = libft.a
 
 SRC = ft_atoi.c \
+	  ft_buildtab.c
 	  ft_bzero.c \
 	  ft_char_swap.c \
+	  ft_check_white.c \
+	  ft_exit.c \
+	  ft_get_next_line.c \
+	  ft_includes_char.c \
 	  ft_isalnum.c \
 	  ft_isalpha.c \
 	  ft_isascii.c \
@@ -31,6 +36,7 @@ SRC = ft_atoi.c \
 	  ft_memdel.c \
 	  ft_memmove.c \
 	  ft_memset.c \
+	  ft_non_white.c \
 	  ft_putchar.c \
 	  ft_putchar_fd.c \
 	  ft_putendl.c \
@@ -80,11 +86,8 @@ SRC = ft_atoi.c \
 	  ft_swap.c \
 	  ft_wordcount.c \
 	  ft_strndup.c \
-	  ft_get_next_line.c \
 	  ft_putstrtab.c \
 	  ft_tablen.c \
-	  ft_exit.c \
-	  ft_buildtab.c
 
 
 OBJ = $(SRC:.c=.o)

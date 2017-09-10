@@ -37,6 +37,7 @@ typedef struct		s_gnl
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
+int					ft_check_white(char *s);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -52,6 +53,7 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
+int					ft_non_white(char *s);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
@@ -106,5 +108,6 @@ void				ft_putstrtab(char **tab);
 int					ft_tablen(char **tab);
 void				ft_exit(const char *message);
 char				**ft_buildtab(int j);
+int					ft_includes_char(char *s, char c);
 
 #endif
