@@ -1,0 +1,13 @@
+/src/*.o
+/src/builtins/*.o
+/src/list/*.o
+/src/free/*.o
+/src/helpers/*.o
+/src/execution/*.o
+/libft/*.o
+/libft/*.a
+/minishell.dSYM
+minishell
+.DS_Store
+*/.DS_Store
+**/*/.DS_Store
