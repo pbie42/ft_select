@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pbie <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/09/10 11:55:43 by pbie              #+#    #+#              #
-#    Updated: 2017/09/10 14:54:01 by pbie             ###   ########.fr        #
+#    Created: 2016/01/15 11:55:43 by pbie              #+#    #+#              #
+#    Updated: 2016/05/19 14:54:01 by pbie             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = ft_select
 CFLAGS = -g -Wall -Werror -Wextra -I includes
 
 SRC = src/main.c \
+		src/nonsense.c \
+
 
 OBJ = $(SRC:.c=.o)
 
@@ -22,7 +24,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@make -C libft
-	@gcc $(CFLAGS) -o $(NAME) $(OBJ) -I libft/includes/libft.h libft/libft.a
+	@gcc $(CFLAGS) -o $(NAME) $(OBJ) -I libft/includes/libft.h libft/libft.a -ltermcap
 	@echo "$(NAME) created"
 
 clean :

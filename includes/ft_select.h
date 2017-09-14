@@ -40,13 +40,21 @@
 # define BGGRAY "\033[47m"
 
 # include <sys/wait.h>
+# include <sys/ioctl.h>
+# include <sys/stat.h>
+# include <sys/param.h>
+# include <ftw.h>
+# include <dirent.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
 # include <signal.h>
 # include <termios.h>
+# include <err.h>
+# include <termcap.h>
 # include "../libft/includes/libft.h"
+# include <term.h>
 
 typedef int					t_bool;
 
