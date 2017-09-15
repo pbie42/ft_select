@@ -1,0 +1,26 @@
+ft_select:
+	Shell:
+		Args:
+			☐ Need to make a list of arguments
+			List:
+				☐ name
+				☐ filetype
+				☐ selected
+				☐ cursor
+		Setup:
+			☐ make non canonical
+			☐ get window size
+			☐ get termios
+		Loop:
+			Keys:
+				☐ catch arrows
+				☐ catch spacebar
+				☐ catch SIGNALS
+			Print:
+				☐ clear screen
+				☐ print out list of selected/all files/folders
+				☐ color based on filetype
+				☐ add '/' for directories
+				☐ underline cursor location filename
+				☐ if selected with spacebar highlight file
+

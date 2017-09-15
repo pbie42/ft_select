@@ -6,75 +6,81 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 15:16:39 by pbie              #+#    #+#             */
-/*   Updated: 2016/05/19 15:19:09 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/15 11:37:47 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void						interrogate(void)
+void						interrogate(t_caps *c)
 {
-	char					*cl_string;
-	char					*cm_string;
-	int					height;
-	int					width;
-	int					auto_wrap;
-	char					pc;
-	char					*bc;
-	char					*up;
-	char					*temp;
+#ifdef Unix
 
-	#ifdef Unix
-	/* Here we assume that an explicit term_buffer
-		was provided to tgetent.  */
-	char *buffer
-		= (char *) malloc (strlen (term_buffer));
-	#define BUFFADDR &buffer
-	#else
-	#define BUFFADDR 0
-	#endif
+	char *buffer = (char *)malloc(strlen(term_buffer));
+# define BUFFADDR &buffer
+#else
+# define BUFFADDR 0
 
-	//Extract information we will use
-	cl_string = tgetstr("cl", BUFFADDR);
-	cm_string = tgetstr("cm", BUFFADDR);
-	auto_wrap = tgetflag("am");
-	height = tgetnum("li");
-	width = tgetnum("co");
+#endif
 
-	//Extract information that termcap functions use
-	temp = tgetstr("pc", BUFFADDR);
-	pc = temp? *temp : 0;
-	bc = tgetstr("le", BUFFADDR);
-	up = tgetstr("up", BUFFADDR);
+	c->cl_string = tgetstr("cl", BUFFADDR);
+	c->cm_string = tgetstr("cm", BUFFADDR);
+	c->auto_wrap = tgetflag("am");
+	c->height = tgetnum("li");
+	c->width = tgetnum("co");
+	c->temp = tgetstr("pc", BUFFADDR);
+	c->pc = c->temp ? *c->temp : 0;
+	c->bc = tgetstr("le", BUFFADDR);
+	c->up = tgetstr("up", BUFFADDR);
 	ft_putendl("end of interrogate");
 }
 
-int						which_key(void)
+/*
+** inputs an arbitrary int into
+** the stdin
+*/
+
+int							putintc(int c)
+{
+	write(STDIN_FILENO, &c, 1);
+	return (0);
+}
+
+int							which_key(t_caps c)
 {
 	char					buffer[3];
+	int					nonthing;
 
-	while(1)
+	nonthing = c.width;
+	while (1)
 	{
+		ft_putendl("here man");
 		read(0, buffer, 3);
 		if (buffer[0] == 27)
-		  printf("C'est une fleche !\n");
+		{
+			printf("C'est une fleche !\n");
+			printf("HOLLA! !\n");
+		}
 		else if (buffer[0] == 4)
 		{
-		  printf("Ctlr+d, on quitte !\n");
-		  return (0);
+			printf("Ctlr+d, on quitte !\n");
+			return (0);
 		}
+		ft_putendl("clearing");
+		tputs(c.cl_string, 1, putintc);
 	}
 	return (0);
 }
 
-int						main(int ac, char **av, char **ev)
+int							main(int ac, char **av, char **ev)
 {
 	char					*term_type;
-	struct termios		term;
-	int					success;
-	int					argc;
+	struct termios			term;
+	int						success;
+	int						argc;
 	char					**argv;
 	char					**envv;
+	t_caps				c;
 
 	argc = ac;
 	argv = av;
@@ -91,10 +97,9 @@ int						main(int ac, char **av, char **ev)
 		ft_putstr(term_type);
 		ft_exit(" is not defined.\n");
 	}
-	// remplis la structure termios des possibilités du terminal.
 	if (tcgetattr(0, &term) == -1)
 		return (-1);
-	interrogate();
-	which_key();
+	interrogate(&c);
+	which_key(c);
 	return (0);
 }

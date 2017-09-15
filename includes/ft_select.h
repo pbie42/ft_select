@@ -58,4 +58,17 @@
 
 typedef int					t_bool;
 
+typedef struct				s_caps
+{
+	int						height;
+	int						width;
+	int						auto_wrap;
+	char					*cl_string;
+	char					*cm_string;
+	char					pc;
+	char					*bc;
+	char					*up;
+	char					*temp;
+}								t_caps;
+
 #endif //FT_SELECT_H
