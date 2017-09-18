@@ -48,13 +48,13 @@ int							putintc(int c)
 
 int							which_key(t_caps c)
 {
-	char					buffer[3];
-	int					nonthing;
+	t_shell				*shell;
+	char					buffer[4];
 
-	nonthing = c.width;
+	new_shell(&shell);
 	while (1)
 	{
-		ft_putendl("here man");
+		tputs(c.cl_string, 1, putintc);
 		read(0, buffer, 3);
 		if (buffer[0] == 27)
 		{
@@ -66,8 +66,6 @@ int							which_key(t_caps c)
 			printf("Ctlr+d, on quitte !\n");
 			return (0);
 		}
-		ft_putendl("clearing");
-		tputs(c.cl_string, 1, putintc);
 	}
 	return (0);
 }

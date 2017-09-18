@@ -15,7 +15,6 @@ NAME = ft_select
 CFLAGS = -g -Wall -Werror -Wextra -I includes
 
 SRC = src/main.c \
-		src/nonsense.c \
 
 
 OBJ = $(SRC:.c=.o)

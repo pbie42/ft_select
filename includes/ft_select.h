@@ -58,6 +58,25 @@
 
 typedef int					t_bool;
 
+typedef struct		s_list
+{
+	char			*name;
+	int				selected;
+	int				cursor;
+	struct s_list	*next;
+	struct s_list	*prev;
+}					t_list;
+
+typedef struct		s_shell
+{
+	struct winsize	*wsz;
+	t_list		*list;
+	struct termios	*tios_old;
+	struct termios	*tios;
+	int				sizemax;
+	int				wbl;
+}					t_shell;
+
 typedef struct				s_caps
 {
 	int						height;
