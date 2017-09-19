@@ -2,6 +2,7 @@
 /src/keys/*.o
 /src/list/*.o
 /src/print/*.o
+/src/shell/*.o
 /src/utils/*.o
 /libft/*.o
 /libft/*.a

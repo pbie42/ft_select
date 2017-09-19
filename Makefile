@@ -15,11 +15,11 @@ NAME = ft_select
 CFLAGS = -g -Wall -Werror -Wextra -I includes
 
 SRC = src/main.c \
-			src/shell.c \
 			src/keys/keys.c \
 			src/list/params.c \
 			src/print/print.c \
 			src/print/printcolor.c \
+			src/shell/shell.c \
 			src/utils/utils.c \
 			src/utils/path.c \
 

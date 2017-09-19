@@ -43,14 +43,18 @@ int							loop(char **av)
 
 	interrogate(&c);
 	new_shell(&shell);
+	updateshell(&shell);
 	shell.list = set_params(av, ".");
-	// ft_print_list(shell.list);
 	while (1)
 	{
 		tputs(c.cl_string, 1, putintc);
 		ft_print_list(shell.list);
 		arrows(buf);
+		// view(&shell);
+		printf("ws_col: %d\n", shell.wsz.ws_col);
+		printf("ws_row: %d\n", shell.wsz.ws_row);
 		read(0, buf, 3);
+		updateshell(&shell);
 	}
 	return (0);
 }

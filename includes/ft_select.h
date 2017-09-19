@@ -70,7 +70,7 @@ typedef struct		s_params
 
 typedef struct		s_shell
 {
-	struct winsize	*wsz;
+	struct winsize	wsz;
 	t_params		*list;
 	struct termios	*tios_old;
 	struct termios	*tios;
@@ -113,6 +113,7 @@ void						ft_symlink_color(char *ptr);
 void						new_shell(t_shell *shell);
 void						arrows(char *buf);
 void						ft_print_list(t_params *tmp);
+void						updateshell(t_shell *shell);
 int							putintc(int c);
 
 #endif //FT_SELECT_H
