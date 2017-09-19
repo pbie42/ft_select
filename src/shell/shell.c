@@ -16,13 +16,10 @@ void						updateshell(t_shell *shell)
 {
 	struct winsize w;
 
-	ft_putendl("before ioctl");
 	if (ioctl(0, TIOCGWINSZ, &w) == 0)
-		ft_putendl("NO error bruh bruh");
-	ft_putendl("after ioctl");
+		ft_putendl("Error with ioctl");
 	shell->wsz.ws_col = w.ws_col;
 	shell->wsz.ws_row = w.ws_row;
-	ft_putendl("after change");
 }
 
 void				new_shell(t_shell *shell)

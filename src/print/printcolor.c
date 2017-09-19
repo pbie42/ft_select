@@ -17,7 +17,7 @@ void			ft_folder_color(char *ptr)
 	ft_putstr(CYAN);
 	ft_putstr(ptr);
 	ft_putstr(STOP);
-	ft_putchar('\n');
+	// ft_putchar('\n');
 }
 
 void			ft_exec_color(char *ptr)
@@ -25,7 +25,7 @@ void			ft_exec_color(char *ptr)
 	ft_putstr(RED);
 	ft_putstr(ptr);
 	ft_putstr(STOP);
-	ft_putchar('\n');
+	// ft_putchar('\n');
 }
 
 void			ft_symlink_color(char *ptr)
@@ -33,5 +33,5 @@ void			ft_symlink_color(char *ptr)
 	ft_putstr(MAGENTA);
 	ft_putstr(ptr);
 	ft_putstr(STOP);
-	ft_putchar('\n');
+	// ft_putchar('\n');
 }

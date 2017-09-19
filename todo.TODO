@@ -19,7 +19,7 @@ ft_select:
 			Print:
 				☐ clear screen
 				☐ print out list of selected/all files/folders
-				☐ color based on filetype
+				✔ color based on filetype @done (2017-9-19 18:41:20)
 				☐ add '/' for directories
 				☐ underline cursor location filename
 				☐ if selected with spacebar highlight file

@@ -22,9 +22,11 @@
 # define UNDERLINE "\033[1m"
 # define BLACK "\033[30m"
 # define WHITE "\033[97m"
+# define BWHITE "\033[1;97m"
 # define BLUE "\033[34m"
 # define RED "\033[31m"
 # define GREEN "\033[32m"
+# define BGREEN "\033[1;32m"
 # define YELLOW "\033[33m"
 # define MAGENTA "\033[35m"
 # define CYAN "\033[36m"
@@ -114,6 +116,10 @@ void						new_shell(t_shell *shell);
 void						arrows(char *buf);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
+void						view(t_shell *shell);
+void						get_max(t_shell *shell);
+void						ft_print_type(t_params *tmp);
 int							putintc(int c);
+int							words_per_row(t_shell *shell);
 
 #endif //FT_SELECT_H

@@ -20,8 +20,11 @@ SRC = src/main.c \
 			src/print/print.c \
 			src/print/printcolor.c \
 			src/shell/shell.c \
-			src/utils/utils.c \
+			src/shell/view.c \
+			src/utils/get_max.c \
 			src/utils/path.c \
+			src/utils/utils.c \
+			src/utils/words_per_row.c \
 
 
 OBJ = $(SRC:.c=.o)

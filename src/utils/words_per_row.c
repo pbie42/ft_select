@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   words_per_row.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,33 +12,17 @@
 
 #include "ft_select.h"
 
-void					ft_print_type(t_params *tmp)
+int						words_per_row(t_shell *shell)
 {
-	if (S_ISDIR((tmp)->st_mode))
-		ft_folder_color((tmp)->name);
-	else if (S_ISLNK((tmp)->st_mode))
-		ft_symlink_color((tmp)->name);
-	else if (((tmp)->st_mode > 0) && (S_IEXEC & (tmp)->st_mode))
-		ft_exec_color((tmp)->name);
-	else if (S_ISREG((tmp)->st_mode))
-	{
-		if (tmp->cursor == TRUE)
-			ft_putstr(BWHITE);
-		ft_putstr((tmp)->name);
-		ft_putstr(STOP);
-	}
-	else
-		ft_putstr((tmp)->name);
-}
+	int					new_max;
+	int					wpr;
 
-void					ft_print_list(t_params *tmp)
-{
-	t_params		*tmp2;
-
-	tmp2 = tmp;
-	while (tmp2)
-	{
-		ft_print_type(tmp2);
-		tmp2 = tmp2->next;
-	}
+	new_max = shell->sizemax + 4;
+	wpr = shell->wsz.ws_col / new_max;
+	ft_putstr("ws_row: ");
+	printf("wpr ws_row: %d\n", shell->wsz.ws_col);
+	ft_putstr("wpr: ");
+	ft_putnbr(wpr);
+	ft_putchar('\n');
+	return (wpr);
 }

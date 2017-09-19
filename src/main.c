@@ -45,14 +45,15 @@ int							loop(char **av)
 	new_shell(&shell);
 	updateshell(&shell);
 	shell.list = set_params(av, ".");
+	shell.list->cursor = TRUE;
 	while (1)
 	{
 		tputs(c.cl_string, 1, putintc);
-		ft_print_list(shell.list);
+		// ft_print_list(shell.list);
+		// printf("ws_col: %d\n", shell.wsz.ws_col);
+		// printf("ws_row: %d\n", shell.wsz.ws_row);
 		arrows(buf);
-		// view(&shell);
-		printf("ws_col: %d\n", shell.wsz.ws_col);
-		printf("ws_row: %d\n", shell.wsz.ws_row);
+		view(&shell);
 		read(0, buf, 3);
 		updateshell(&shell);
 	}
