@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   printcolor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Created: 2016/05/18 14:23:16 by pbie              #+#    #+#             */
+/*   Updated: 2016/05/18 17:15:42 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void				new_shell(t_shell *shell)
+void			ft_folder_color(char *ptr)
 {
-	shell = (t_shell *)malloc(sizeof(t_shell));
-	shell->list = NULL;
-	shell->tios_old = (struct termios*)malloc(sizeof(struct termios));
-	shell->tios = (struct termios*)malloc(sizeof(struct termios));
-	if (tcgetattr(0, shell->tios_old) == -1)
-		return ;
-	tcgetattr(0, shell->tios);
-	shell->tios->c_lflag &= ~(ICANON);
-	shell->tios->c_lflag &= ~(ECHO);
-	tcsetattr(0, TCSADRAIN, shell->tios);
+	ft_putstr(CYAN);
+	ft_putstr(ptr);
+	ft_putstr(STOP);
+	ft_putchar('\n');
+}
+
+void			ft_exec_color(char *ptr)
+{
+	ft_putstr(RED);
+	ft_putstr(ptr);
+	ft_putstr(STOP);
+	ft_putchar('\n');
+}
+
+void			ft_symlink_color(char *ptr)
+{
+	ft_putstr(MAGENTA);
+	ft_putstr(ptr);
+	ft_putstr(STOP);
+	ft_putchar('\n');
 }

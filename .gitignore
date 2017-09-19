@@ -1,13 +1,12 @@
 /src/*.o
-/src/builtins/*.o
+/src/keys/*.o
 /src/list/*.o
-/src/free/*.o
-/src/helpers/*.o
-/src/execution/*.o
+/src/print/*.o
+/src/utils/*.o
 /libft/*.o
 /libft/*.a
 /minishell.dSYM
-minishell
+ft_select
 .DS_Store
 */.DS_Store
 **/*/.DS_Store

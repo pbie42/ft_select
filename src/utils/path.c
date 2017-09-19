@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Created: 2016/05/12 13:16:01 by pbie              #+#    #+#             */
+/*   Updated: 2017/08/10 18:05:13 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void				new_shell(t_shell *shell)
+char				*make_path_fl(char *dir, char *file)
 {
-	shell = (t_shell *)malloc(sizeof(t_shell));
-	shell->list = NULL;
-	shell->tios_old = (struct termios*)malloc(sizeof(struct termios));
-	shell->tios = (struct termios*)malloc(sizeof(struct termios));
-	if (tcgetattr(0, shell->tios_old) == -1)
-		return ;
-	tcgetattr(0, shell->tios);
-	shell->tios->c_lflag &= ~(ICANON);
-	shell->tios->c_lflag &= ~(ECHO);
-	tcsetattr(0, TCSADRAIN, shell->tios);
+	char			*nw_path;
+	size_t			l;
+
+	l = ft_strlen(dir) + ft_strlen(file);
+	l += 1;
+	nw_path = NULL;
+	if (!(nw_path = (char*)malloc(sizeof(char) * l + 1)))
+		return (NULL);
+	if (file[0] == '/' || file[0] == '~')
+		nw_path = ft_strdup(file);
+	else
+	{
+		nw_path = ft_strcpy(nw_path, dir);
+		nw_path = ft_strcat(nw_path, "/");
+		nw_path = ft_strcat(nw_path, file);
+	}
+	return (nw_path);
 }

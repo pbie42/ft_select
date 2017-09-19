@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,16 +12,13 @@
 
 #include "ft_select.h"
 
-void				new_shell(t_shell *shell)
+/*
+** inputs an arbitrary int into
+** the stdin
+*/
+
+int							putintc(int c)
 {
-	shell = (t_shell *)malloc(sizeof(t_shell));
-	shell->list = NULL;
-	shell->tios_old = (struct termios*)malloc(sizeof(struct termios));
-	shell->tios = (struct termios*)malloc(sizeof(struct termios));
-	if (tcgetattr(0, shell->tios_old) == -1)
-		return ;
-	tcgetattr(0, shell->tios);
-	shell->tios->c_lflag &= ~(ICANON);
-	shell->tios->c_lflag &= ~(ECHO);
-	tcsetattr(0, TCSADRAIN, shell->tios);
+	write(STDIN_FILENO, &c, 1);
+	return (0);
 }

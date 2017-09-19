@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.c                                            :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,16 +12,19 @@
 
 #include "ft_select.h"
 
-void				new_shell(t_shell *shell)
+void						arrows(char *buf)
 {
-	shell = (t_shell *)malloc(sizeof(t_shell));
-	shell->list = NULL;
-	shell->tios_old = (struct termios*)malloc(sizeof(struct termios));
-	shell->tios = (struct termios*)malloc(sizeof(struct termios));
-	if (tcgetattr(0, shell->tios_old) == -1)
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 65 && buf[3] == 0)
+		ft_putendl("UP");
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 66 && buf[3] == 0)
+		ft_putendl("DOWN");
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 68 && buf[3] == 0)
+		ft_putendl("LEFT");
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 67 && buf[3] == 0)
+		ft_putendl("RIGHT");
+	else if (buf[0] == 4)
+	{
+		printf("Ctlr+d, on quitte !\n");
 		return ;
-	tcgetattr(0, shell->tios);
-	shell->tios->c_lflag &= ~(ICANON);
-	shell->tios->c_lflag &= ~(ECHO);
-	tcsetattr(0, TCSADRAIN, shell->tios);
+	}
 }

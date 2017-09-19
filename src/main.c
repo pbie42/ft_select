@@ -35,37 +35,22 @@ void						interrogate(t_caps *c)
 	ft_putendl("end of interrogate");
 }
 
-/*
-** inputs an arbitrary int into
-** the stdin
-*/
-
-int							putintc(int c)
+int							loop(char **av)
 {
-	write(STDIN_FILENO, &c, 1);
-	return (0);
-}
+	t_shell				shell;
+	char					buf[4];
+	t_caps				c;
 
-int							which_key(t_caps c)
-{
-	t_shell				*shell;
-	char					buffer[4];
-
+	interrogate(&c);
 	new_shell(&shell);
+	shell.list = set_params(av, ".");
+	// ft_print_list(shell.list);
 	while (1)
 	{
 		tputs(c.cl_string, 1, putintc);
-		read(0, buffer, 3);
-		if (buffer[0] == 27)
-		{
-			printf("C'est une fleche !\n");
-			printf("HOLLA! !\n");
-		}
-		else if (buffer[0] == 4)
-		{
-			printf("Ctlr+d, on quitte !\n");
-			return (0);
-		}
+		ft_print_list(shell.list);
+		arrows(buf);
+		read(0, buf, 3);
 	}
 	return (0);
 }
@@ -73,16 +58,12 @@ int							which_key(t_caps c)
 int							main(int ac, char **av, char **ev)
 {
 	char					*term_type;
-	struct termios			term;
 	int						success;
-	int						argc;
-	char					**argv;
-	char					**envv;
-	t_caps				c;
 
-	argc = ac;
-	argv = av;
-	envv = ev;
+	(void)ac;
+	(void)ev;
+	if (!av[1])
+		ft_exit("Please enter at least one argument");
 	if ((term_type = getenv("TERM")) == NULL)
 		return (-1);
 	if (term_type == 0)
@@ -95,9 +76,6 @@ int							main(int ac, char **av, char **ev)
 		ft_putstr(term_type);
 		ft_exit(" is not defined.\n");
 	}
-	if (tcgetattr(0, &term) == -1)
-		return (-1);
-	interrogate(&c);
-	which_key(c);
+	loop(av);
 	return (0);
 }

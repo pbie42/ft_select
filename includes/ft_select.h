@@ -58,19 +58,20 @@
 
 typedef int					t_bool;
 
-typedef struct		s_list
+typedef struct		s_params
 {
 	char			*name;
-	int				selected;
-	int				cursor;
-	struct s_list	*next;
-	struct s_list	*prev;
-}					t_list;
+	t_bool				selected;
+	t_bool				cursor;
+	mode_t			st_mode;
+	struct s_params	*next;
+	struct s_params	*prev;
+}					t_params;
 
 typedef struct		s_shell
 {
 	struct winsize	*wsz;
-	t_list		*list;
+	t_params		*list;
 	struct termios	*tios_old;
 	struct termios	*tios;
 	int				sizemax;
@@ -89,5 +90,29 @@ typedef struct				s_caps
 	char					*up;
 	char					*temp;
 }								t_caps;
+
+typedef struct				s_lists
+{
+	t_params					*list;
+	t_params					*tmp;
+	t_params					*tmp2;
+}							t_lists;
+
+typedef struct		s_single
+{
+	t_params			*alist;
+	struct stat		fstat;
+	char			*nw_path;
+}					t_single;
+
+t_params				*set_params(char **av, char *pwd);
+char						*make_path_fl(char *dir, char *file);
+void						ft_folder_color(char *ptr);
+void						ft_exec_color(char *ptr);
+void						ft_symlink_color(char *ptr);
+void						new_shell(t_shell *shell);
+void						arrows(char *buf);
+void						ft_print_list(t_params *tmp);
+int							putintc(int c);
 
 #endif //FT_SELECT_H
