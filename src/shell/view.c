@@ -26,7 +26,6 @@ void						ft_put_padding(char *name, int max)
 void						view(t_shell *shell)
 {
 	t_params				*tmp;
-	int					wpr;
 	int					i;
 
 	get_max(shell);
@@ -47,7 +46,7 @@ void						view(t_shell *shell)
 		ft_print_type(tmp);
 		ft_put_padding(tmp->name, shell->sizemax);
 		ft_putstr(" ]");
-		if (i % wpr == 0)
+		if (i % shell->wpr == 0)
 			ft_putchar('\n');
 		i++;
 		tmp = tmp->next;

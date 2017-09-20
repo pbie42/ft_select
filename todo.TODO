@@ -24,6 +24,7 @@ ft_select:
 				✔ add arrow and bold lettering for selected file @done (2017-9-20 10:15:26)
 				☐ if selected with spacebar highlight file
 			Actions:
+				☐ Have up and down arrows work
 				✔ have arrows move cursor and embolden the word @done (2017-9-20 17:38:22)
 				✔ pressing right on the last in a list/down on last item returns to beginning @done (2017-9-20 17:38:19)
 				✔ need to hide actual terminal cursor on launch of program @done (2017-9-20 17:38:43)

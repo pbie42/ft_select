@@ -20,7 +20,7 @@ void						arrows(char *buf, t_shell *shell)
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 65 && buf[3] == 0)
 		ft_putendl("UP");
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 66 && buf[3] == 0)
-		ft_putendl("DOWN");
+		arrow_down(shell);
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 68 && buf[3] == 0)
 		arrow_left(shell);
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 67 && buf[3] == 0)

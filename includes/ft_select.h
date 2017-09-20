@@ -121,6 +121,7 @@ void						ft_symlink_color(t_params *tmp);
 void						arrows(char *buf, t_shell *shell);
 void						arrow_right(t_shell *shell);
 void						arrow_left(t_shell *shell);
+void						arrow_down(t_shell *shell);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
