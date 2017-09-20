@@ -1,26 +1,33 @@
 ft_select:
 	Shell:
 		Args:
-			☐ Need to make a list of arguments
+			✔ Need to make a list of arguments @done (2017-9-20 10:14:33)
 			List:
-				☐ name
-				☐ filetype
-				☐ selected
-				☐ cursor
+				✔ name @done (2017-9-20 10:14:28)
+				✔ filetype @done (2017-9-20 10:14:30)
+				✔ selected @done (2017-9-20 10:14:30)
+				✔ cursor @done (2017-9-20 10:14:31)
 		Setup:
-			☐ make non canonical
-			☐ get window size
-			☐ get termios
+			✔ make non canonical @done (2017-9-20 10:14:36)
+			✔ get window size @done (2017-9-20 10:14:37)
+			✔ get termios @done (2017-9-20 10:14:39)
 		Loop:
 			Keys:
-				☐ catch arrows
+				✔ catch arrows @done (2017-9-20 10:14:44)
 				☐ catch spacebar
 				☐ catch SIGNALS
 			Print:
-				☐ clear screen
-				☐ print out list of selected/all files/folders
+				✔ clear screen @done (2017-9-20 10:14:50)
+				✔ print out list of selected/all files/folders @done (2017-9-20 10:14:51)
 				✔ color based on filetype @done (2017-9-19 18:41:20)
 				☐ add '/' for directories
-				☐ underline cursor location filename
+				✔ add arrow and bold lettering for selected file @done (2017-9-20 10:15:26)
 				☐ if selected with spacebar highlight file
+			Actions:
+				☐ have arrows move cursor and embolden the word
+				☐ pressing right on the last in a list/down on last item returns to beginning
+				☐ need to hide actual terminal cursor on launch of program
+				☐ reset it on the closing of the program (ctrl-c, ctrl-d, enter, etc.)
+					Selected List:
+						☐ when item is selected create a list with it to print after enter is hit
 
