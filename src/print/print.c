@@ -15,11 +15,11 @@
 void					ft_print_type(t_params *tmp)
 {
 	if (S_ISDIR((tmp)->st_mode))
-		ft_folder_color((tmp)->name);
+		ft_folder_color(tmp);
 	else if (S_ISLNK((tmp)->st_mode))
-		ft_symlink_color((tmp)->name);
+		ft_symlink_color(tmp);
 	else if (((tmp)->st_mode > 0) && (S_IEXEC & (tmp)->st_mode))
-		ft_exec_color((tmp)->name);
+		ft_exec_color(tmp);
 	else if (S_ISREG((tmp)->st_mode))
 	{
 		if (tmp->cursor == TRUE)

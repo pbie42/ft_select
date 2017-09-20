@@ -12,18 +12,30 @@
 
 #include "ft_select.h"
 
+t_shell	*get_shell(void)
+{
+	static t_shell *save = NULL;
+
+	if (save == NULL)
+		save = new_shell();
+	updateshell(save);
+	return (save);
+}
+
 void						updateshell(t_shell *shell)
 {
 	struct winsize w;
 
 	if (ioctl(0, TIOCGWINSZ, &w) == 0)
-		ft_putendl("Error with ioctl");
+		ft_putendl("\0");
 	shell->wsz.ws_col = w.ws_col;
 	shell->wsz.ws_row = w.ws_row;
 }
 
-void				new_shell(t_shell *shell)
+t_shell				*new_shell(void)
 {
+	t_shell			*shell;
+
 	shell = (t_shell *)malloc(sizeof(t_shell));
 	shell->list = NULL;
 	shell->tios_old = (struct termios*)malloc(sizeof(struct termios));
@@ -31,9 +43,10 @@ void				new_shell(t_shell *shell)
 	shell->wsz = *(struct winsize*)malloc(sizeof(struct winsize));
 	ioctl(0, TIOCGWINSZ, shell->wsz);
 	if (tcgetattr(0, shell->tios_old) == -1)
-		return ;
+		return (NULL);
 	tcgetattr(0, shell->tios);
 	shell->tios->c_lflag &= ~(ICANON);
 	shell->tios->c_lflag &= ~(ECHO);
-	tcsetattr(0, TCSADRAIN, shell->tios);
+	shell_env_on(shell);
+	return (shell);
 }

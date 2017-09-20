@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   view.c                                             :+:      :+:    :+:   */
+/*   arrows.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,44 +12,36 @@
 
 #include "ft_select.h"
 
-void						ft_put_padding(char *name, int max)
-{
-	size_t				i;
-	size_t				diff;
-
-	i = -1;
-	diff = max - ft_strlen(name);
-	while (++i < diff)
-		ft_putchar(' ');
-}
-
-void						view(t_shell *shell)
+void						arrow_right(t_shell *shell)
 {
 	t_params				*tmp;
-	int					wpr;
-	int					i;
 
-	get_max(shell);
-	words_per_row(shell);
 	tmp = shell->list;
-	i = 1;
-	while (tmp)
-	{
-		if (tmp->cursor == TRUE)
-		{
-			ft_putstr("[");
-			ft_putstr(BGREEN);
-			ft_putstr("⪢");
-			ft_putstr(STOP);
-		}
-		else
-			ft_putstr("[ ");
-		ft_print_type(tmp);
-		ft_put_padding(tmp->name, shell->sizemax);
-		ft_putstr(" ]");
-		if (i % wpr == 0)
-			ft_putchar('\n');
-		i++;
+	while (tmp && tmp->cursor == FALSE)
 		tmp = tmp->next;
+	tmp->cursor = FALSE;
+	if (tmp->next)
+		tmp->next->cursor = TRUE;
+	else
+		shell->list->cursor = TRUE;
+}
+
+void						arrow_left(t_shell *shell)
+{
+	t_params				*tmp;
+	t_params				*tmp2;
+
+	tmp = shell->list;
+	tmp2 = shell->list;
+	while (tmp && tmp->cursor == FALSE)
+		tmp = tmp->next;
+	tmp->cursor = FALSE;
+	if (tmp->prev)
+		tmp->prev->cursor = TRUE;
+	else
+	{
+		while (tmp2->next)
+			tmp2 = tmp2->next;
+		tmp2->cursor = TRUE;
 	}
 }

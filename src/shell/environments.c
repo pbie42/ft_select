@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   view.c                                             :+:      :+:    :+:   */
+/*   environments.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,44 +12,16 @@
 
 #include "ft_select.h"
 
-void						ft_put_padding(char *name, int max)
+void						shell_env_on(t_shell *shell)
 {
-	size_t				i;
-	size_t				diff;
-
-	i = -1;
-	diff = max - ft_strlen(name);
-	while (++i < diff)
-		ft_putchar(' ');
+	tcsetattr(0, TCSADRAIN, shell->tios);
+	tputs(tgetstr("vi", NULL), 1, putintc);
+	tputs(tgetstr("ti", NULL), 1, putintc);
 }
 
-void						view(t_shell *shell)
+void						shell_env_off(t_shell *shell)
 {
-	t_params				*tmp;
-	int					wpr;
-	int					i;
-
-	get_max(shell);
-	words_per_row(shell);
-	tmp = shell->list;
-	i = 1;
-	while (tmp)
-	{
-		if (tmp->cursor == TRUE)
-		{
-			ft_putstr("[");
-			ft_putstr(BGREEN);
-			ft_putstr("⪢");
-			ft_putstr(STOP);
-		}
-		else
-			ft_putstr("[ ");
-		ft_print_type(tmp);
-		ft_put_padding(tmp->name, shell->sizemax);
-		ft_putstr(" ]");
-		if (i % wpr == 0)
-			ft_putchar('\n');
-		i++;
-		tmp = tmp->next;
-	}
+	tcsetattr(0, TCSADRAIN, shell->tios_old);
+	tputs(tgetstr("te", NULL), 1, putintc);
+	tputs(tgetstr("ve", NULL), 1, putintc);
 }

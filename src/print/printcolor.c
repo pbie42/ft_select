@@ -12,26 +12,32 @@
 
 #include "ft_select.h"
 
-void			ft_folder_color(char *ptr)
+void			ft_folder_color(t_params *tmp)
 {
-	ft_putstr(CYAN);
-	ft_putstr(ptr);
+	if (tmp->cursor == TRUE)
+		ft_putstr(BCYAN);
+	else
+		ft_putstr(CYAN);
+	ft_putstr(tmp->name);
 	ft_putstr(STOP);
-	// ft_putchar('\n');
 }
 
-void			ft_exec_color(char *ptr)
+void			ft_exec_color(t_params *tmp)
 {
-	ft_putstr(RED);
-	ft_putstr(ptr);
+	if (tmp->cursor == TRUE)
+		ft_putstr(BRED);
+	else
+		ft_putstr(RED);
+	ft_putstr(tmp->name);
 	ft_putstr(STOP);
-	// ft_putchar('\n');
 }
 
-void			ft_symlink_color(char *ptr)
+void			ft_symlink_color(t_params *tmp)
 {
-	ft_putstr(MAGENTA);
-	ft_putstr(ptr);
+	if (tmp->cursor == TRUE)
+		ft_putstr(BMAGENTA);
+	else
+		ft_putstr(MAGENTA);
+	ft_putstr(tmp->name);
 	ft_putstr(STOP);
-	// ft_putchar('\n');
 }

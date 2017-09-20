@@ -25,11 +25,14 @@
 # define BWHITE "\033[1;97m"
 # define BLUE "\033[34m"
 # define RED "\033[31m"
+# define BRED "\033[1;31m"
 # define GREEN "\033[32m"
 # define BGREEN "\033[1;32m"
 # define YELLOW "\033[33m"
 # define MAGENTA "\033[35m"
+# define BMAGENTA "\033[1;35m"
 # define CYAN "\033[36m"
+# define BCYAN "\033[1;36m"
 # define GRAY "\033[37m"
 # define BGBLACK "\033[40m"
 # define BGRED "\033[41m"
@@ -77,7 +80,7 @@ typedef struct		s_shell
 	struct termios	*tios_old;
 	struct termios	*tios;
 	int				sizemax;
-	int				wbl;
+	int				wpr;
 }					t_shell;
 
 typedef struct				s_caps
@@ -98,6 +101,7 @@ typedef struct				s_lists
 	t_params					*list;
 	t_params					*tmp;
 	t_params					*tmp2;
+	t_params					*prev;
 }							t_lists;
 
 typedef struct		s_single
@@ -108,18 +112,25 @@ typedef struct		s_single
 }					t_single;
 
 t_params				*set_params(char **av, char *pwd);
+t_shell					*get_shell(void);
+t_shell					*new_shell(void);
 char						*make_path_fl(char *dir, char *file);
-void						ft_folder_color(char *ptr);
-void						ft_exec_color(char *ptr);
-void						ft_symlink_color(char *ptr);
-void						new_shell(t_shell *shell);
-void						arrows(char *buf);
+void						ft_folder_color(t_params *tmp);
+void						ft_exec_color(t_params *tmp);
+void						ft_symlink_color(t_params *tmp);
+void						arrows(char *buf, t_shell *shell);
+void						arrow_right(t_shell *shell);
+void						arrow_left(t_shell *shell);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
 void						get_max(t_shell *shell);
 void						ft_print_type(t_params *tmp);
+void						keys(char *buf, t_shell *shell);
+void						ft_signal(void);
+void						shell_env_on(t_shell *shell);
+void						shell_env_off(t_shell *shell);
+void						words_per_row(t_shell *shell);
 int							putintc(int c);
-int							words_per_row(t_shell *shell);
 
 #endif //FT_SELECT_H

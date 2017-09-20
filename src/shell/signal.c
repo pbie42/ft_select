@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   view.c                                             :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,44 +12,49 @@
 
 #include "ft_select.h"
 
-void						ft_put_padding(char *name, int max)
+void	handle_exit(int sig)
 {
-	size_t				i;
-	size_t				diff;
+	t_shell	*shell;
 
-	i = -1;
-	diff = max - ft_strlen(name);
-	while (++i < diff)
-		ft_putchar(' ');
+	(void)sig;
+	shell = get_shell();
+	shell_env_off(shell);
+	exit(0);
 }
 
-void						view(t_shell *shell)
+void	handle_sigwinch(int sig)
 {
-	t_params				*tmp;
-	int					wpr;
-	int					i;
+	t_shell	*shell;
 
-	get_max(shell);
-	words_per_row(shell);
-	tmp = shell->list;
-	i = 1;
-	while (tmp)
+	(void)sig;
+	shell = get_shell();
+	updateshell(shell);
+	tputs(tgetstr("cl", NULL), 1, putintc);
+	view(shell);
+}
+
+void		sig_handler(int sig)
+{
+	if (sig == SIGWINCH)
+		handle_sigwinch(0);
+	else if (sig == SIGINT)
+		handle_exit(0);
+	else if (sig == SIGQUIT)
+		handle_exit(0);
+	else if (sig == SIGKILL)
+		handle_exit(0);
+	else if (sig == SIGTERM)
+		handle_exit(0);
+}
+
+void		ft_signal(void)
+{
+	int		i;
+
+	i = 0;
+	while (i < 33)
 	{
-		if (tmp->cursor == TRUE)
-		{
-			ft_putstr("[");
-			ft_putstr(BGREEN);
-			ft_putstr("⪢");
-			ft_putstr(STOP);
-		}
-		else
-			ft_putstr("[ ");
-		ft_print_type(tmp);
-		ft_put_padding(tmp->name, shell->sizemax);
-		ft_putstr(" ]");
-		if (i % wpr == 0)
-			ft_putchar('\n');
+		signal(i, sig_handler);
 		i++;
-		tmp = tmp->next;
 	}
 }

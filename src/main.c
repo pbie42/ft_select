@@ -32,30 +32,27 @@ void						interrogate(t_caps *c)
 	c->pc = c->temp ? *c->temp : 0;
 	c->bc = tgetstr("le", BUFFADDR);
 	c->up = tgetstr("up", BUFFADDR);
-	ft_putendl("end of interrogate");
 }
 
 int							loop(char **av)
 {
-	t_shell				shell;
+	t_shell				*shell;
 	char					buf[4];
 	t_caps				c;
 
 	interrogate(&c);
-	new_shell(&shell);
-	updateshell(&shell);
-	shell.list = set_params(av, ".");
-	shell.list->cursor = TRUE;
+	shell = get_shell();
+	updateshell(shell);
+	shell->list = set_params(av, ".");
+	shell->list->cursor = TRUE;
+	ft_signal();
 	while (1)
 	{
 		tputs(c.cl_string, 1, putintc);
-		// ft_print_list(shell.list);
-		// printf("ws_col: %d\n", shell.wsz.ws_col);
-		// printf("ws_row: %d\n", shell.wsz.ws_row);
-		arrows(buf);
-		view(&shell);
+		keys(buf, shell);
+		view(shell);
 		read(0, buf, 3);
-		updateshell(&shell);
+		updateshell(shell);
 	}
 	return (0);
 }

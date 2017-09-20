@@ -15,7 +15,7 @@ ft_select:
 			Keys:
 				✔ catch arrows @done (2017-9-20 10:14:44)
 				☐ catch spacebar
-				☐ catch SIGNALS
+				✔ catch SIGNALS @done (2017-9-20 17:38:28)
 			Print:
 				✔ clear screen @done (2017-9-20 10:14:50)
 				✔ print out list of selected/all files/folders @done (2017-9-20 10:14:51)
@@ -24,10 +24,10 @@ ft_select:
 				✔ add arrow and bold lettering for selected file @done (2017-9-20 10:15:26)
 				☐ if selected with spacebar highlight file
 			Actions:
-				☐ have arrows move cursor and embolden the word
-				☐ pressing right on the last in a list/down on last item returns to beginning
-				☐ need to hide actual terminal cursor on launch of program
-				☐ reset it on the closing of the program (ctrl-c, ctrl-d, enter, etc.)
+				✔ have arrows move cursor and embolden the word @done (2017-9-20 17:38:22)
+				✔ pressing right on the last in a list/down on last item returns to beginning @done (2017-9-20 17:38:19)
+				✔ need to hide actual terminal cursor on launch of program @done (2017-9-20 17:38:43)
+				✔ reset it on the closing of the program (ctrl-c, ctrl-d, enter, etc.) @done (2017-9-20 17:38:40)
 					Selected List:
 						☐ when item is selected create a list with it to print after enter is hit
 

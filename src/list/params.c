@@ -43,7 +43,6 @@ t_params				*list_single(char *name, char *pwd)
 	s.alist->name = ft_strdup(name);
 	s.alist->cursor = FALSE;
 	s.alist->selected = FALSE;
-	s.alist->next = NULL;
 	s.alist->prev = NULL;
 	return (s.alist);
 }
@@ -55,7 +54,10 @@ t_params						*set_params(char **av, char *pwd)
 
 	i = 1;
 	if (av[i] != NULL)
+	{
 		l.list = list_single(av[i++], pwd);
+		l.list->prev = NULL;
+	}
 	else
 		return (NULL);
 	l.tmp = l.list;
@@ -65,6 +67,7 @@ t_params						*set_params(char **av, char *pwd)
 		if (l.tmp2 != NULL)
 		{
 			l.list->next = l.tmp2;
+			l.tmp2->prev = l.list;
 			l.list = l.list->next;
 		}
 		i++;
