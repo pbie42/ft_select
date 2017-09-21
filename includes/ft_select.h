@@ -111,6 +111,26 @@ typedef struct		s_single
 	char			*nw_path;
 }					t_single;
 
+typedef struct				s_down
+{
+	t_params				*tmp;
+	t_params				*tmp2;
+	int					mod;
+	int					i;
+	t_bool				found;
+}								t_down;
+
+typedef struct				s_up
+{
+	t_params				*tmp;
+	t_params				*tmp2;
+	t_params				*end;
+	int					mod;
+	int					i;
+	t_bool				found;
+	int					len;
+}								t_up;
+
 t_params				*set_params(char **av, char *pwd);
 t_shell					*get_shell(void);
 t_shell					*new_shell(void);
@@ -121,7 +141,10 @@ void						ft_symlink_color(t_params *tmp);
 void						arrows(char *buf, t_shell *shell);
 void						arrow_right(t_shell *shell);
 void						arrow_left(t_shell *shell);
+void						arrow_up(t_shell *shell);
 void						arrow_down(t_shell *shell);
+void						arrow_down_bis(t_down *d, t_shell *shell);
+void						arrow_down_ter(t_down *d, t_shell *shell);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
@@ -132,6 +155,9 @@ void						ft_signal(void);
 void						shell_env_on(t_shell *shell);
 void						shell_env_off(t_shell *shell);
 void						words_per_row(t_shell *shell);
+void						ft_putendnbr(char *s, int i);
 int							putintc(int c);
+int						ft_list_len(t_params *list);
+t_params					*ft_list_end(t_params *list);
 
 #endif //FT_SELECT_H

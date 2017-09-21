@@ -1,5 +1,6 @@
 /src/*.o
 /src/keys/*.o
+/src/keys/arrows/*.o
 /src/list/*.o
 /src/print/*.o
 /src/shell/*.o

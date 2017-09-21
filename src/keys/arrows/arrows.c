@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.c                                             :+:      :+:    :+:   */
+/*   arrows.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,28 +12,36 @@
 
 #include "ft_select.h"
 
-void						arrows(char *buf, t_shell *shell)
+void						arrow_right(t_shell *shell)
 {
-	t_shell				*shell2;
+	t_params				*tmp;
 
-	shell2 = shell;
-	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 65 && buf[3] == 0)
-		arrow_up(shell);
-	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 66 && buf[3] == 0)
-		arrow_down(shell);
-	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 68 && buf[3] == 0)
-		arrow_left(shell);
-	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 67 && buf[3] == 0)
-		arrow_right(shell);
-	else if (buf[0] == 4)
-	{
-		printf("Ctlr+d, on quitte !\n");
-		return ;
-	}
+	tmp = shell->list;
+	while (tmp && tmp->cursor == FALSE)
+		tmp = tmp->next;
+	tmp->cursor = FALSE;
+	if (tmp->next)
+		tmp->next->cursor = TRUE;
+	else
+		shell->list->cursor = TRUE;
 }
 
-void						keys(char *buf, t_shell *shell)
+void						arrow_left(t_shell *shell)
 {
-	if (buf[0] == 27)
-		arrows(buf, shell);
+	t_params				*tmp;
+	t_params				*tmp2;
+	
+	tmp = shell->list;
+	tmp2 = shell->list;
+	while (tmp && tmp->cursor == FALSE)
+	tmp = tmp->next;
+	tmp->cursor = FALSE;
+	if (tmp->prev)
+	tmp->prev->cursor = TRUE;
+	else
+	{
+		while (tmp2->next)
+		tmp2 = tmp2->next;
+		tmp2->cursor = TRUE;
+	}
 }
