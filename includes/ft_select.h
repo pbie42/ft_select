@@ -124,10 +124,12 @@ typedef struct				s_up
 {
 	t_params				*tmp;
 	t_params				*tmp2;
+	t_params				*tmp3;
 	t_params				*end;
+	t_bool				found;
+	t_bool				setup_i;
 	int					mod;
 	int					i;
-	t_bool				found;
 	int					len;
 }								t_up;
 
@@ -142,6 +144,9 @@ void						arrows(char *buf, t_shell *shell);
 void						arrow_right(t_shell *shell);
 void						arrow_left(t_shell *shell);
 void						arrow_up(t_shell *shell);
+void						arrow_up_setup(t_up *u, t_shell *shell);
+void						arrow_up_bis(t_up *u, t_shell *shell);
+void						arrow_up_ter(t_up *u, t_shell *shell);
 void						arrow_down(t_shell *shell);
 void						arrow_down_bis(t_down *d, t_shell *shell);
 void						arrow_down_ter(t_down *d, t_shell *shell);

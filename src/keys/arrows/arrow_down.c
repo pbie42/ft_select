@@ -24,15 +24,9 @@ void						arrow_down(t_shell *shell)
 		d.mod = d.i++ % shell->wpr;
 		d.tmp = d.tmp->next;
 	}
-	ft_putstr("d.mod start is ");
-	ft_putnbr(d.mod);
-	ft_putchar('\n');
 	d.tmp->cursor = FALSE;
 	d.found = FALSE;
 	arrow_down_bis(&d, shell);
-	ft_putstr("d.mod mid is ");
-	ft_putnbr(d.mod);
-	ft_putchar('\n');
 	d.tmp2 = shell->list;
 	d.i = 0;
 	if (d.tmp == NULL && !d.found)
