@@ -50,7 +50,7 @@ void						arrow_up_setup(t_up *u, t_shell *shell)
 
 void						arrow_up_bis(t_up *u, t_shell *shell)
 {
-	while (u->tmp2 && u->found == FALSE)
+	while (u->tmp2 && !u->found)
 	{
 		if (u->mod == 0 && u->i == 0)
 			u->i = u->len;
