@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enter_key.c                                        :+:      :+:    :+:   */
+/*   printcolor_out.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,40 +12,24 @@
 
 #include "ft_select.h"
 
-void						enter_key_bis(t_enter *e)
+void			ft_folder_color_out(t_params *tmp)
 {
-	while (e->tmp2->next)
-	{
-		if (e->tmp2->selected)
-		{
-			ft_print_type_out(e->tmp2);
-			if (e->i < e->amnt_selected - 1)
-			{
-				ft_putstr_fd(" ", 1);
-			}
-			e->i++;
-		}
-		e->tmp2 = e->tmp2->next;
-	}
+	ft_putstr_fd(CYAN, 1);
+	ft_putstr_fd(tmp->name, 1);
+	ft_putstr_fd(STOP, 1);
 }
 
-void						enter_key(t_shell *shell)
+void			ft_exec_color_out(t_params *tmp)
 {
-	t_enter				e;
 
-	shell_env_off(shell);
-	e.amnt_selected = 0;
-	e.i = 0;
-	e.tmp = shell->list;
-	while (e.tmp)
-	{
-		if (e.tmp->selected)
-			e.amnt_selected++;
-		e.tmp = e.tmp->next;
-	}
-	e.tmp2 = shell->list;
-	enter_key_bis(&e);
-	if (e.tmp2->selected)
-		ft_print_type_out(e.tmp2);
-	exit(1);
+	ft_putstr_fd(RED, 1);
+	ft_putstr_fd(tmp->name, 1);
+	ft_putstr_fd(STOP, 1);
+}
+
+void			ft_symlink_color_out(t_params *tmp)
+{
+	ft_putstr_fd(MAGENTA, 1);
+	ft_putstr_fd(tmp->name, 1);
+	ft_putstr_fd(STOP, 1);
 }

@@ -43,6 +43,10 @@
 # define BGCYAN "\033[1;46m"
 # define BGLIGHT "\033[1;47m"
 # define BGGRAY "\033[47m"
+# define INVWHITE "\033[7;97m"
+# define INVCYAN "\033[7;36m"
+# define INVRED "\033[7;31m"
+# define INVMAGENTA "\033[7;35m"
 
 # include <sys/wait.h>
 # include <sys/ioctl.h>
@@ -133,13 +137,24 @@ typedef struct				s_up
 	int					len;
 }								t_up;
 
+typedef struct				s_enter
+{
+	t_params				*tmp;
+	t_params				*tmp2;
+	int					amnt_selected;
+	int					i;
+}								t_enter;
+
 t_params				*set_params(char **av, char *pwd);
 t_shell					*get_shell(void);
 t_shell					*new_shell(void);
 char						*make_path_fl(char *dir, char *file);
 void						ft_folder_color(t_params *tmp);
+void						ft_folder_color_out(t_params *tmp);
 void						ft_exec_color(t_params *tmp);
+void						ft_exec_color_out(t_params *tmp);
 void						ft_symlink_color(t_params *tmp);
+void						ft_symlink_color_out(t_params *tmp);
 void						arrows(char *buf, t_shell *shell);
 void						arrow_right(t_shell *shell);
 void						arrow_left(t_shell *shell);
@@ -155,6 +170,7 @@ void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
 void						get_max(t_shell *shell);
 void						ft_print_type(t_params *tmp);
+void						ft_print_type_out(t_params *tmp);
 void						keys(char *buf, t_shell *shell);
 void						ft_signal(void);
 void						shell_env_on(t_shell *shell);

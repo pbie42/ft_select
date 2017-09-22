@@ -23,10 +23,10 @@ ft_select:
 				☐ add '/' for directories
 				✔ add arrow and bold lettering for selected file @done (2017-9-20 10:15:26)
 				✔ if selected with spacebar highlight file @done (2017-9-22 15:30:50)
-				☐ Choice non selected: normal text.
-				☐ Selected choice: inverse video text.
-				☐ Cursor’s position: underlined text.
-				☐ Selected choice + cursor’s position: inverse video underlined text.
+				✔ Choice non selected: normal text. @done (2017-9-22 16:58:14)
+				✔ Selected choice: inverse video text. @done (2017-9-22 16:58:18)
+				✔ Cursor’s position: underlined text. @done (2017-9-22 16:58:20)
+				✔ Selected choice + cursor’s position: inverse video underlined text. @done (2017-9-22 16:58:23)
 			Actions:
 				✔ Have up and down arrows work @done (2017-9-22 16:04:29)
 				✔ have arrows move cursor and embolden the word @done (2017-9-20 17:38:22)

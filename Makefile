@@ -25,12 +25,14 @@ SRC = src/main.c \
 			src/list/ft_list_len.c \
 			src/list/params.c \
 			src/print/print.c \
+			src/print/print_out.c \
 			src/print/printcolor.c \
+			src/print/printcolor_out.c \
 			src/shell/environments.c \
 			src/shell/shell.c \
 			src/shell/signal.c \
 			src/shell/view.c \
-			src/utils/ft_putstrnbr.c \
+			src/utils/ft_putendnbr.c \
 			src/utils/get_max.c \
 			src/utils/path.c \
 			src/utils/utils.c \
