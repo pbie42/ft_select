@@ -18,12 +18,16 @@ void						enter_key(t_shell *shell)
 
 	shell_env_off(shell);
 	tmp = shell->list;
-	while (tmp)
+	while (tmp->next)
 	{
 		if (tmp->selected)
-			ft_putendl_fd(tmp->name, 1);
+		{
+			ft_putstr_fd(tmp->name, 1);
+			ft_putstr_fd(" ", 1);
+		}
 		tmp = tmp->next;
 	}
+	ft_putstr_fd(tmp->name, 1);
 	exit(1);
 
 }
