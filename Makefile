@@ -18,7 +18,9 @@ SRC = src/main.c \
 			src/keys/arrows/arrow_down.c \
 			src/keys/arrows/arrow_up.c \
 			src/keys/arrows/arrows.c \
+			src/keys/enter_key.c \
 			src/keys/keys.c \
+			src/keys/space_key.c \
 			src/list/ft_list_end.c \
 			src/list/ft_list_len.c \
 			src/list/params.c \

@@ -16,6 +16,8 @@ void			ft_folder_color(t_params *tmp)
 {
 	if (tmp->cursor == TRUE)
 		ft_putstr(BCYAN);
+	if (tmp->selected == TRUE)
+		ft_putstr(BGCYAN);
 	else
 		ft_putstr(CYAN);
 	ft_putstr(tmp->name);

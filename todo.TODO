@@ -22,7 +22,7 @@ ft_select:
 				✔ color based on filetype @done (2017-9-19 18:41:20)
 				☐ add '/' for directories
 				✔ add arrow and bold lettering for selected file @done (2017-9-20 10:15:26)
-				☐ if selected with spacebar highlight file
+				✔ if selected with spacebar highlight file @done (2017-9-22 15:30:50)
 			Actions:
 				☐ Have up and down arrows work
 				✔ have arrows move cursor and embolden the word @done (2017-9-20 17:38:22)
@@ -30,5 +30,5 @@ ft_select:
 				✔ need to hide actual terminal cursor on launch of program @done (2017-9-20 17:38:43)
 				✔ reset it on the closing of the program (ctrl-c, ctrl-d, enter, etc.) @done (2017-9-20 17:38:40)
 					Selected List:
-						☐ when item is selected create a list with it to print after enter is hit
+						✔ Print after exit @done (2017-9-22 15:31:10)
 

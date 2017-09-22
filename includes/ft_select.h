@@ -40,8 +40,8 @@
 # define BGYELLOW "\033[43m"
 # define BGBLUE "\033[44m"
 # define BGMAGENTA "\033[45m"
-# define BGCYAN "\033[46m"
-# define BGLIGHT "\033[47m"
+# define BGCYAN "\033[1;46m"
+# define BGLIGHT "\033[1;47m"
 # define BGGRAY "\033[47m"
 
 # include <sys/wait.h>
@@ -161,6 +161,8 @@ void						shell_env_on(t_shell *shell);
 void						shell_env_off(t_shell *shell);
 void						words_per_row(t_shell *shell);
 void						ft_putendnbr(char *s, int i);
+void						space_key(t_shell *shell);
+void						enter_key(t_shell *shell);
 int							putintc(int c);
 int						ft_list_len(t_params *list);
 t_params					*ft_list_end(t_params *list);

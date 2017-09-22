@@ -22,6 +22,8 @@ void					ft_print_type(t_params *tmp)
 		ft_exec_color(tmp);
 	else if (S_ISREG((tmp)->st_mode))
 	{
+		if (tmp->selected == TRUE)
+			ft_putstr(BGLIGHT);
 		if (tmp->cursor == TRUE)
 			ft_putstr(BWHITE);
 		ft_putstr((tmp)->name);

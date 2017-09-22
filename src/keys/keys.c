@@ -36,4 +36,8 @@ void						keys(char *buf, t_shell *shell)
 {
 	if (buf[0] == 27)
 		arrows(buf, shell);
+	if (buf[0] == 10 )
+		enter_key(shell);
+	if (buf[0] == 32)
+		space_key(shell);
 }
