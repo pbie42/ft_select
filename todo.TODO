@@ -35,9 +35,10 @@ ft_select:
 				✔ reset it on the closing of the program (ctrl-c, ctrl-d, enter, etc.) @done (2017-9-20 17:38:40)
 				☐ If the user presses esc key, the program musn’t send anything to the shell and it
 					has to exit properly
-				☐ If the user presses either delete or backspace, the element the cursor is pointing to
-					must be erased from the list. If there are no more elements in the list, the behavior
-					must be exactly the same as if the user had pressed esc
+				✔ If the user presses either delete or backspace, the element the cursor is pointing to @done (2017-9-22 19:22:14)
+					✔ must be erased from the list. If there are no more elements in the list, the behavior @done (2017-9-22 19:22:27)
+				☐ Handle other delete key!
+					✔ must be exactly the same as if the user had pressed esc @done (2017-9-22 19:22:35)
 				☐ We must be able to interrupt your program with ctrl+z and restore it with fg
 					without seeing any changes in its behavior.
 		Terminal:

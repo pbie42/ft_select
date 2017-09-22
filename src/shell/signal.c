@@ -17,6 +17,7 @@ void	handle_exit(int sig)
 	t_shell	*shell;
 
 	(void)sig;
+	ft_putendl("handle exit");
 	shell = get_shell();
 	shell_env_off(shell);
 	exit(0);

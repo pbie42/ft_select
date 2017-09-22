@@ -21,6 +21,7 @@ t_params				*invalid_single(char *name)
 	s.alist->name = ft_strdup(name);
 	s.alist->cursor = FALSE;
 	s.alist->selected = FALSE;
+	s.alist->deleted = FALSE;
 	s.alist->next = NULL;
 	s.alist->prev = NULL;
 	return (s.alist);

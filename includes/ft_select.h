@@ -72,6 +72,7 @@ typedef struct		s_params
 	char			*name;
 	t_bool				selected;
 	t_bool				cursor;
+	t_bool				deleted;
 	mode_t			st_mode;
 	struct s_params	*next;
 	struct s_params	*prev;
@@ -165,6 +166,7 @@ void						arrow_up_ter(t_up *u, t_shell *shell);
 void						arrow_down(t_shell *shell);
 void						arrow_down_bis(t_down *d, t_shell *shell);
 void						arrow_down_ter(t_down *d, t_shell *shell);
+void						delete_key(t_shell *shell);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
@@ -179,8 +181,10 @@ void						words_per_row(t_shell *shell);
 void						ft_putendnbr(char *s, int i);
 void						space_key(t_shell *shell);
 void						enter_key(t_shell *shell);
+void						ft_list_remove(t_shell *shell, t_params *del);
 int							putintc(int c);
 int						ft_list_len(t_params *list);
 t_params					*ft_list_end(t_params *list);
+void						handle_exit(int sig);
 
 #endif //FT_SELECT_H

@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.c                                             :+:      :+:    :+:   */
+/*   delete_key.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Created: 2016/05/19 15:16:39 by pbie              #+#    #+#             */
+/*   Updated: 2016/05/19 15:19:09 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void						keys(char *buf, t_shell *shell)
+void						delete_key(t_shell *shell)
 {
-	if (buf[0] == 27)
-		arrows(buf, shell);
-	if (buf[0] == 10 )
-		enter_key(shell);
-	if (buf[0] == 32)
-		space_key(shell);
-	if (buf[0] == 127)
-		delete_key(shell);
-	else
+	t_params				*tmp;
+	t_bool				deleted;
+
+	deleted = FALSE;
+	tmp = shell->list;
+	while(tmp && deleted == FALSE)
 	{
-		// ft_putendnbr("buf i ", buf[0]);
+		if (tmp->cursor == TRUE)
+		{
+			if (tmp->prev)
+				tmp->prev->cursor = TRUE;
+			else if (tmp->next)
+				tmp->next->cursor = TRUE;
+			else
+				handle_exit(1);
+			ft_list_remove(shell, tmp);
+			deleted = TRUE;
+		}
+		tmp = tmp->next;
 	}
 }
