@@ -23,6 +23,7 @@ SRC = src/main.c \
 			src/keys/keys.c \
 			src/keys/space_key.c \
 			src/list/ft_list_end.c \
+			src/list/ft_list_free.c \
 			src/list/ft_list_len.c \
 			src/list/ft_list_remove.c \
 			src/list/params.c \
@@ -31,6 +32,7 @@ SRC = src/main.c \
 			src/print/printcolor.c \
 			src/print/printcolor_out.c \
 			src/shell/environments.c \
+			src/shell/ft_shell_free.c \
 			src/shell/handlers.c \
 			src/shell/shell.c \
 			src/shell/signal.c \

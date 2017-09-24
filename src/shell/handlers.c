@@ -20,6 +20,7 @@ void						handle_exit(int sig)
 	ft_putendl("handle exit");
 	shell = get_shell();
 	shell_env_off(shell);
+	ft_list_free(shell->list);
 	exit(0);
 }
 
@@ -69,7 +70,7 @@ void						handle_fpe(int sig)
 	(void)sig;
 	shell = get_shell();
 	tputs(tgetstr("cl", NULL), 1, putintc);
-	if (shell->sizemax + 4 > shell->wsz.ws_col)
+	if (shell->sizemax + 4 > shell->wsz->ws_col)
 		ft_putendl("TOO SMALL!!");
 	else
 		view(shell);

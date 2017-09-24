@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enter_key.c                                        :+:      :+:    :+:   */
+/*   ft_list_free.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,41 +12,14 @@
 
 #include "ft_select.h"
 
-void						enter_key_bis(t_enter *e)
+void				ft_list_free(t_params *list)
 {
-	while (e->tmp2->next)
-	{
-		if (e->tmp2->selected)
-		{
-			ft_print_type_out(e->tmp2);
-			if (e->i < e->amnt_selected - 1)
-			{
-				ft_putstr_fd(" ", 1);
-			}
-			e->i++;
-		}
-		e->tmp2 = e->tmp2->next;
-	}
-}
+	t_params			*curr;
 
-void						enter_key(t_shell *shell)
-{
-	t_enter				e;
-
-	shell_env_off(shell);
-	e.amnt_selected = 0;
-	e.i = 0;
-	e.tmp = shell->list;
-	while (e.tmp)
+	while ((curr = list) != NULL)
 	{
-		if (e.tmp->selected)
-			e.amnt_selected++;
-		e.tmp = e.tmp->next;
+		list = list->next;
+		free(curr->name);
+		free(curr);
 	}
-	e.tmp2 = shell->list;
-	enter_key_bis(&e);
-	if (e.tmp2->selected)
-		ft_print_type_out(e.tmp2);
-	ft_shell_free(shell);
-	exit(1);
 }

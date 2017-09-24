@@ -49,6 +49,9 @@ int							loop(char **av)
 	while (1)
 	{
 		tputs(c.cl_string, 1, putintc);
+		ft_putendnbr("wpr", shell->wpr);
+		ft_putendnbr("ws_col", shell->wsz->ws_col);
+		ft_putendnbr("ws_row", shell->wsz->ws_row);
 		keys(buf, shell);
 		view(shell);
 		read(0, buf, 3);

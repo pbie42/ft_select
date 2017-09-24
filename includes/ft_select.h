@@ -80,7 +80,7 @@ typedef struct		s_params
 
 typedef struct		s_shell
 {
-	struct winsize	wsz;
+	struct winsize	*wsz;
 	t_params		*list;
 	struct termios	*tios_old;
 	struct termios	*tios;
@@ -182,6 +182,8 @@ void						ft_putendnbr(char *s, int i);
 void						space_key(t_shell *shell);
 void						enter_key(t_shell *shell);
 void						ft_list_remove(t_shell *shell, t_params *del);
+void						ft_list_free(t_params *list);
+void						ft_shell_free(t_shell *shell);
 void						handle_exit(int sig);
 void						handle_sigwinch(int sig);
 void						handle_pause(int sig);

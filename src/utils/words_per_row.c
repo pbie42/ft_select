@@ -17,5 +17,5 @@ void						words_per_row(t_shell *shell)
 	int					new_max;
 
 	new_max = shell->sizemax + 4;
-	shell->wpr = shell->wsz.ws_col / new_max;
+	shell->wpr = shell->wsz->ws_col / new_max;
 }
