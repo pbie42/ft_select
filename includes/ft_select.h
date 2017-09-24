@@ -182,9 +182,13 @@ void						ft_putendnbr(char *s, int i);
 void						space_key(t_shell *shell);
 void						enter_key(t_shell *shell);
 void						ft_list_remove(t_shell *shell, t_params *del);
+void						handle_exit(int sig);
+void						handle_sigwinch(int sig);
+void						handle_pause(int sig);
+void						handle_resume(int sig);
+void						handle_fpe(int sig);
 int							putintc(int c);
 int						ft_list_len(t_params *list);
 t_params					*ft_list_end(t_params *list);
-void						handle_exit(int sig);
 
 #endif //FT_SELECT_H

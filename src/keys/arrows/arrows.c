@@ -34,10 +34,10 @@ void						arrow_left(t_shell *shell)
 	tmp = shell->list;
 	tmp2 = shell->list;
 	while (tmp && tmp->cursor == FALSE)
-	tmp = tmp->next;
+		tmp = tmp->next;
 	tmp->cursor = FALSE;
 	if (tmp->prev)
-	tmp->prev->cursor = TRUE;
+		tmp->prev->cursor = TRUE;
 	else
 	{
 		while (tmp2->next)

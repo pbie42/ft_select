@@ -20,7 +20,6 @@ ft_select:
 				✔ clear screen @done (2017-9-20 10:14:50)
 				✔ print out list of selected/all files/folders @done (2017-9-20 10:14:51)
 				✔ color based on filetype @done (2017-9-19 18:41:20)
-				☐ add '/' for directories
 				✔ add arrow and bold lettering for selected file @done (2017-9-20 10:15:26)
 				✔ if selected with spacebar highlight file @done (2017-9-22 15:30:50)
 				✔ Choice non selected: normal text. @done (2017-9-22 16:58:14)
@@ -33,19 +32,19 @@ ft_select:
 				✔ pressing right on the last in a list/down on last item returns to beginning @done (2017-9-20 17:38:19)
 				✔ need to hide actual terminal cursor on launch of program @done (2017-9-20 17:38:43)
 				✔ reset it on the closing of the program (ctrl-c, ctrl-d, enter, etc.) @done (2017-9-20 17:38:40)
-				☐ If the user presses esc key, the program musn’t send anything to the shell and it
-					has to exit properly
+				✔ If the user presses esc key, the program musn’t send anything to the shell and it @done (2017-9-24 14:59:15)
+					✔ has to exit properly @done (2017-9-24 14:59:22)
 				✔ If the user presses either delete or backspace, the element the cursor is pointing to @done (2017-9-22 19:22:14)
 					✔ must be erased from the list. If there are no more elements in the list, the behavior @done (2017-9-22 19:22:27)
-				☐ Handle other delete key!
 					✔ must be exactly the same as if the user had pressed esc @done (2017-9-22 19:22:35)
-				☐ We must be able to interrupt your program with ctrl+z and restore it with fg
-					without seeing any changes in its behavior.
+				✔ Handle other delete key! @done (2017-9-24 14:54:24)
+				✔ We must be able to interrupt your program with ctrl+z and restore it with fg @done (2017-9-24 15:27:11)
+					✔ without seeing any changes in its behavior. @done (2017-9-24 15:27:12)
 		Terminal:
 			☐ If the program is launched in an empty environment, you need to behave reasonably.
 			Resize:
-				☐ If too small must show something saying so.
-				☐ Must resume normal functionality once enough size is given
+				✔ If too small must show something saying so. @done (2017-9-24 16:28:46)
+				✔ Must resume normal functionality once enough size is given @done (2017-9-24 16:28:47)
 		Exit:
 			☐ Whichever way your program ends, the default configuration of your terminal
 				MUST be restored. This is true even after it received a signal (except for the

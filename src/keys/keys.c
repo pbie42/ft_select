@@ -14,16 +14,20 @@
 
 void						keys(char *buf, t_shell *shell)
 {
+	if (buf[0] == 27 && buf[1] == 0 && buf[2] == 0 && buf[3] == 0)
+		handle_exit(1);
 	if (buf[0] == 27)
 		arrows(buf, shell);
 	if (buf[0] == 10 )
 		enter_key(shell);
 	if (buf[0] == 32)
 		space_key(shell);
+	if (buf[0] == 126)
+		delete_key(shell);
 	if (buf[0] == 127)
 		delete_key(shell);
 	else
 	{
-		// ft_putendnbr("buf i ", buf[0]);
+		// ft_putendnbr("buf[0] = ", buf[0]);
 	}
 }

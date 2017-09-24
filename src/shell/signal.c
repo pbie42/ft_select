@@ -12,32 +12,14 @@
 
 #include "ft_select.h"
 
-void	handle_exit(int sig)
-{
-	t_shell	*shell;
-
-	(void)sig;
-	ft_putendl("handle exit");
-	shell = get_shell();
-	shell_env_off(shell);
-	exit(0);
-}
-
-void	handle_sigwinch(int sig)
-{
-	t_shell	*shell;
-
-	(void)sig;
-	shell = get_shell();
-	updateshell(shell);
-	tputs(tgetstr("cl", NULL), 1, putintc);
-	view(shell);
-}
-
 void		sig_handler(int sig)
 {
 	if (sig == SIGWINCH)
 		handle_sigwinch(0);
+	else if (sig == SIGTSTP)
+		handle_pause(0);
+	else if (sig == SIGCONT)
+		handle_resume(0);
 	else if (sig == SIGINT)
 		handle_exit(0);
 	else if (sig == SIGQUIT)
@@ -46,6 +28,13 @@ void		sig_handler(int sig)
 		handle_exit(0);
 	else if (sig == SIGTERM)
 		handle_exit(0);
+	else if (sig == SIGFPE)
+		handle_fpe(0);
+	else
+	{
+		ft_putendnbr("sig is ", sig);
+		ft_putendl("Signal Problem!!");
+	}
 }
 
 void		ft_signal(void)

@@ -31,6 +31,7 @@ SRC = src/main.c \
 			src/print/printcolor.c \
 			src/print/printcolor_out.c \
 			src/shell/environments.c \
+			src/shell/handlers.c \
 			src/shell/shell.c \
 			src/shell/signal.c \
 			src/shell/view.c \
