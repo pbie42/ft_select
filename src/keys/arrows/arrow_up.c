@@ -52,8 +52,6 @@ void						arrow_up_bis(t_up *u, t_shell *shell)
 {
 	while (u->tmp2 && !u->found)
 	{
-		if (u->mod == 0 && u->i == 0)
-			u->i = u->len;
 		if (u->mod == u->i % shell->wpr)
 		{
 			if (u->tmp2->prev)
@@ -93,8 +91,10 @@ void						arrow_up_ter(t_up *u, t_shell *shell)
 				}
 				else
 				{
-					u->found = FALSE;
-					u->tmp3 = u->tmp3->prev;
+					u->found = TRUE;
+					if (u->tmp3->prev)
+						u->tmp3 = u->tmp3->prev;
+					u->tmp3->cursor = TRUE;
 				}
 			}
 			else

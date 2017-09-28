@@ -122,6 +122,7 @@ typedef struct				s_down
 	t_params				*tmp2;
 	int					mod;
 	int					i;
+	int					len;
 	t_bool				found;
 }								t_down;
 

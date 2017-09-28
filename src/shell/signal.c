@@ -32,8 +32,7 @@ void		sig_handler(int sig)
 		handle_fpe(0);
 	else
 	{
-		ft_putendnbr("sig is ", sig);
-		ft_putendl("Signal Problem!!");
+		
 	}
 }
 

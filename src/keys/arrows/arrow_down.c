@@ -19,6 +19,7 @@ void						arrow_down(t_shell *shell)
 	d.tmp = shell->list;
 	d.i = 1;
 	d.mod = 0;
+	d.len = ft_list_len(shell->list);
 	while (d.tmp && d.tmp->cursor == FALSE)
 	{
 		d.mod = d.i++ % shell->wpr;
@@ -70,11 +71,22 @@ void						arrow_down_ter(t_down *d, t_shell *shell)
 		}
 		if (d->mod == d->i++ % shell->wpr)
 		{
+			if (d->i == d->len)
+			{
+				d->i = 0;
+				d->tmp2 = shell->list;
+				d->tmp2->cursor = TRUE;
+				d->found = TRUE;
+			}
+			else
+			{
 			d->found = TRUE;
-			d->tmp2 = d->tmp2->next;
+			if (d->tmp2->next)
+				d->tmp2 = d->tmp2->next;
 			d->tmp2->cursor = TRUE;
+			}
 		}
 		else
-			d->tmp2 = d->tmp2->next;
+				d->tmp2 = d->tmp2->next;
 	}
 }
