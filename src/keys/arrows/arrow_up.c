@@ -58,7 +58,16 @@ void						arrow_up_bis(t_up *u, t_shell *shell)
 			{
 				u->found = TRUE;
 				u->tmp2->cursor = TRUE;
-				u->tmp2 = u->tmp2->prev;
+				if (u->mod == 0 && u->i == 0 && u->len > shell->wpr)
+				{
+					u->i = u->len - 1;
+					u->tmp2->cursor = FALSE;
+					u->found = FALSE;
+				}
+				if (u->tmp2->prev)
+					u->tmp2 = u->tmp2->prev;
+				else
+					u->tmp2 = shell->list;
 			}
 			else
 			{
