@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.c                                             :+:      :+:    :+:   */
+/*   found.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2017/09/29 14:32:10 by pbie             ###   ########.fr       */
+/*   Created: 2017/09/29 15:16:39 by pbie              #+#    #+#             */
+/*   Updated: 2017/09/29 15:02:31 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void						keys(char *buf, t_shell *shell)
+void						found_up(t_up *u, t_params *tmp)
 {
-	if (buf[0] == 27 && buf[1] == 0 && buf[2] == 0 && buf[3] == 0)
-		handle_exit(1);
-	if (buf[0] == 27)
-		arrows(buf, shell);
-	if (buf[0] == 10)
-		enter_key(shell);
-	if (buf[0] == 32)
-		space_key(shell);
-	if (buf[0] == 126)
-		delete_key(shell);
-	if (buf[0] == 127)
-		delete_key(shell);
-	else
-	{
-		ft_putendnbr("buf[0] = ", buf[0]);
-	}
+	u->found = TRUE;
+	tmp->cursor = TRUE;
+}
+
+void						found_down(t_down *d)
+{
+	d->found = TRUE;
+	d->tmp2->cursor = TRUE;
 }

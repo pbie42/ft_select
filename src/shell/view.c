@@ -6,13 +6,13 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 15:03:19 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void						ft_put_padding(char *name, int max)
+void					ft_put_padding(char *name, int max)
 {
 	size_t				i;
 	size_t				diff;
@@ -23,9 +23,9 @@ void						ft_put_padding(char *name, int max)
 		ft_putchar(' ');
 }
 
-void						view(t_shell *shell)
+void					view(t_shell *shell)
 {
-	t_params				*tmp;
+	t_params			*tmp;
 	int					i;
 
 	get_max(shell);
@@ -35,12 +35,7 @@ void						view(t_shell *shell)
 	while (tmp)
 	{
 		if (tmp->cursor == TRUE)
-		{
-			ft_putstr("[");
-			ft_putstr(BGREEN);
-			ft_putstr("⪢");
-			ft_putstr(STOP);
-		}
+			ft_cursor_color();
 		else
 			ft_putstr("[ ");
 		ft_print_type(tmp);

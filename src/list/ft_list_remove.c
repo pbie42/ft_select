@@ -18,35 +18,37 @@ void						free_list_item(t_params *del)
 	free(del);
 }
 
+void						prev_next(t_params *tmp)
+{
+	tmp->prev->next = tmp->next;
+	tmp->next->prev = tmp->prev;
+}
+
 void						ft_list_remove(t_shell *shell, t_params *del)
 {
-	t_params				*tmp;
-	t_params				*new_head;
+	t_remove				r;
 
-	tmp = shell->list;
-	while (tmp)
+	r.tmp = shell->list;
+	while (r.tmp)
 	{
 		if (ft_strcmp(shell->list->name, del->name) == 0)
 		{
-			new_head = shell->list->next;
-			new_head->prev = NULL;
+			r.new_head = shell->list->next;
+			r.new_head->prev = NULL;
 			free_list_item(shell->list);
-			shell->list = new_head;
+			shell->list = r.new_head;
 			return ;
 		}
-		else if (ft_strcmp(tmp->name, del->name) == 0 && tmp->prev)
+		else if (ft_strcmp(r.tmp->name, del->name) == 0 && r.tmp->prev)
 		{
-			if (tmp->next)
-			{
-				tmp->prev->next = tmp->next;
-				tmp->next->prev = tmp->prev;
-			}
+			if (r.tmp->next)
+				prev_next(r.tmp);
 			else
-				tmp->prev->next = NULL;
+				r.tmp->prev->next = NULL;
 			free_list_item(del);
 			return ;
 		}
 		else
-			tmp = tmp->next;
+			r.tmp = r.tmp->next;
 	}
 }

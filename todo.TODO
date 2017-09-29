@@ -40,7 +40,7 @@ ft_select:
 				✔ Handle other delete key! @done (2017-9-24 14:54:24)
 				✔ We must be able to interrupt your program with ctrl+z and restore it with fg @done (2017-9-24 15:27:11)
 					✔ without seeing any changes in its behavior. @done (2017-9-24 15:27:12)
-				☐ Fix circling when going up
+				✔ Fix circling when going up @done (9/29/2017, 3:26:13 PM)
 		Terminal:
 			☐ If the program is launched in an empty environment, you need to behave reasonably.
 			Resize:

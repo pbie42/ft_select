@@ -18,6 +18,7 @@ SRC = src/main.c \
 			src/keys/arrows/arrow_down.c \
 			src/keys/arrows/arrow_up.c \
 			src/keys/arrows/arrows.c \
+			src/keys/arrows/found.c \
 			src/keys/delete_key.c \
 			src/keys/enter_key.c \
 			src/keys/keys.c \

@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/10 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2017/09/10 14:53:52 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 15:19:02 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,26 @@
 
 typedef int					t_bool;
 
-typedef struct		s_params
+typedef struct				s_params
 {
-	char			*name;
-	t_bool				selected;
-	t_bool				cursor;
-	t_bool				deleted;
-	mode_t			st_mode;
-	struct s_params	*next;
-	struct s_params	*prev;
-}					t_params;
+	char					*name;
+	t_bool					selected;
+	t_bool					cursor;
+	t_bool					deleted;
+	mode_t					st_mode;
+	struct s_params			*next;
+	struct s_params			*prev;
+}							t_params;
 
-typedef struct		s_shell
+typedef struct				s_shell
 {
-	struct winsize	*wsz;
-	t_params		*list;
-	struct termios	*tios_old;
-	struct termios	*tios;
-	int				sizemax;
-	int				wpr;
-}					t_shell;
+	struct winsize			*wsz;
+	t_params				*list;
+	struct termios			*tios_old;
+	struct termios			*tios;
+	int						sizemax;
+	int						wpr;
+}							t_shell;
 
 typedef struct				s_caps
 {
@@ -99,32 +99,32 @@ typedef struct				s_caps
 	char					*bc;
 	char					*up;
 	char					*temp;
-}								t_caps;
+}							t_caps;
 
 typedef struct				s_lists
 {
-	t_params					*list;
-	t_params					*tmp;
-	t_params					*tmp2;
-	t_params					*prev;
+	t_params				*list;
+	t_params				*tmp;
+	t_params				*tmp2;
+	t_params				*prev;
 }							t_lists;
 
-typedef struct		s_single
+typedef struct				s_single
 {
-	t_params			*alist;
-	struct stat		fstat;
-	char			*nw_path;
-}					t_single;
+	t_params				*alist;
+	struct stat				fstat;
+	char					*nw_path;
+}							t_single;
 
 typedef struct				s_down
 {
 	t_params				*tmp;
 	t_params				*tmp2;
-	int					mod;
-	int					i;
-	int					len;
-	t_bool				found;
-}								t_down;
+	int						mod;
+	int						i;
+	int						len;
+	t_bool					found;
+}							t_down;
 
 typedef struct				s_up
 {
@@ -132,28 +132,35 @@ typedef struct				s_up
 	t_params				*tmp2;
 	t_params				*tmp3;
 	t_params				*end;
-	t_bool				found;
-	t_bool				setup_i;
-	int					mod;
-	int					i;
-	int					len;
-}								t_up;
+	t_bool					found;
+	t_bool					setup_i;
+	int						mod;
+	int						i;
+	int						len;
+}							t_up;
 
 typedef struct				s_enter
 {
 	t_params				*tmp;
 	t_params				*tmp2;
-	int					amnt_selected;
-	int					i;
-}								t_enter;
+	int						amnt_selected;
+	int						i;
+}							t_enter;
 
-t_params				*set_params(char **av, char *pwd);
-t_shell					*get_shell(void);
-t_shell					*new_shell(void);
+typedef struct				s_remove
+{
+	t_params				*tmp;
+	t_params				*new_head;
+}							t_remove;
+
+t_params					*set_params(char **av, char *pwd);
+t_shell						*get_shell(void);
+t_shell						*new_shell(void);
 char						*make_path_fl(char *dir, char *file);
 void						ft_folder_color(t_params *tmp);
 void						ft_folder_color_out(t_params *tmp);
 void						ft_exec_color(t_params *tmp);
+void						ft_cursor_color(void);
 void						ft_exec_color_out(t_params *tmp);
 void						ft_symlink_color(t_params *tmp);
 void						ft_symlink_color_out(t_params *tmp);
@@ -190,8 +197,10 @@ void						handle_sigwinch(int sig);
 void						handle_pause(int sig);
 void						handle_resume(int sig);
 void						handle_fpe(int sig);
+void						found_up(t_up *u, t_params *tmp);
+void						found_down(t_down *d);
 int							putintc(int c);
-int						ft_list_len(t_params *list);
+int							ft_list_len(t_params *list);
 t_params					*ft_list_end(t_params *list);
 
-#endif //FT_SELECT_H
+#endif

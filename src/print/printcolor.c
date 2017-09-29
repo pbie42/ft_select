@@ -12,6 +12,14 @@
 
 #include "ft_select.h"
 
+void			ft_cursor_color(void)
+{
+	ft_putstr("[");
+	ft_putstr(BGREEN);
+	ft_putstr("⪢");
+	ft_putstr(STOP);
+}
+
 void			ft_folder_color(t_params *tmp)
 {
 	if (tmp->cursor == TRUE)

@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 14:37:52 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void						arrow_left(t_shell *shell)
 {
 	t_params				*tmp;
 	t_params				*tmp2;
-	
+
 	tmp = shell->list;
 	tmp2 = shell->list;
 	while (tmp && tmp->cursor == FALSE)
@@ -41,14 +41,14 @@ void						arrow_left(t_shell *shell)
 	else
 	{
 		while (tmp2->next)
-		tmp2 = tmp2->next;
+			tmp2 = tmp2->next;
 		tmp2->cursor = TRUE;
 	}
 }
 
 void						arrows(char *buf, t_shell *shell)
 {
-	t_shell				*shell2;
+	t_shell					*shell2;
 
 	shell2 = shell;
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 65 && buf[3] == 0)

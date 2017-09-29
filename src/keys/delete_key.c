@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 15:16:39 by pbie              #+#    #+#             */
-/*   Updated: 2016/05/19 15:19:09 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 14:30:38 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void						delete_key(t_shell *shell)
 {
 	t_params				*tmp;
-	t_bool				deleted;
+	t_bool					deleted;
 
 	deleted = FALSE;
 	tmp = shell->list;
-	while(tmp && deleted == FALSE)
+	while (tmp && deleted == FALSE)
 	{
 		if (tmp->cursor == TRUE)
 		{

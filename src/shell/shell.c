@@ -6,13 +6,13 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 15:02:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_shell	*get_shell(void)
+t_shell				*get_shell(void)
 {
 	static t_shell *save = NULL;
 
@@ -22,7 +22,7 @@ t_shell	*get_shell(void)
 	return (save);
 }
 
-void						updateshell(t_shell *shell)
+void				updateshell(t_shell *shell)
 {
 	struct winsize w;
 

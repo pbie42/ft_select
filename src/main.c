@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/19 15:16:39 by pbie              #+#    #+#             */
-/*   Updated: 2017/09/15 11:37:47 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 15:16:53 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,22 @@
 
 void						interrogate(t_caps *c)
 {
-#ifdef Unix
-
-	char *buffer = (char *)malloc(strlen(term_buffer));
-# define BUFFADDR &buffer
-#else
-# define BUFFADDR 0
-
-#endif
-
-	c->cl_string = tgetstr("cl", BUFFADDR);
-	c->cm_string = tgetstr("cm", BUFFADDR);
+	c->cl_string = tgetstr("cl", 0);
+	c->cm_string = tgetstr("cm", 0);
 	c->auto_wrap = tgetflag("am");
 	c->height = tgetnum("li");
 	c->width = tgetnum("co");
-	c->temp = tgetstr("pc", BUFFADDR);
+	c->temp = tgetstr("pc", 0);
 	c->pc = c->temp ? *c->temp : 0;
-	c->bc = tgetstr("le", BUFFADDR);
-	c->up = tgetstr("up", BUFFADDR);
+	c->bc = tgetstr("le", 0);
+	c->up = tgetstr("up", 0);
 }
 
 int							loop(char **av)
 {
-	t_shell				*shell;
+	t_shell					*shell;
 	char					buf[4];
-	t_caps				c;
+	t_caps					c;
 
 	interrogate(&c);
 	shell = get_shell();
@@ -49,9 +40,6 @@ int							loop(char **av)
 	while (1)
 	{
 		tputs(c.cl_string, 1, putintc);
-		// ft_putendnbr("wpr", shell->wpr);
-		// ft_putendnbr("ws_col", shell->wsz->ws_col);
-		// ft_putendnbr("ws_row", shell->wsz->ws_row);
 		keys(buf, shell);
 		view(shell);
 		read(0, buf, 3);

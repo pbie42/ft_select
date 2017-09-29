@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/11 13:17:17 by pbie              #+#    #+#             */
-/*   Updated: 2016/12/11 15:16:26 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/29 14:55:33 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_params				*invalid_single(char *name)
 
 t_params				*list_single(char *name, char *pwd)
 {
-	t_single		s;
+	t_single			s;
 
 	s.nw_path = make_path_fl(pwd, name);
 	if (lstat(s.nw_path, &s.fstat) < 0)
@@ -48,10 +48,10 @@ t_params				*list_single(char *name, char *pwd)
 	return (s.alist);
 }
 
-t_params						*set_params(char **av, char *pwd)
+t_params				*set_params(char **av, char *pwd)
 {
-	t_lists			l;
-	int				i;
+	t_lists				l;
+	int					i;
 
 	i = 1;
 	if (av[i] != NULL)
