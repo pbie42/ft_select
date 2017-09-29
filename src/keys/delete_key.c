@@ -12,6 +12,29 @@
 
 #include "ft_select.h"
 
+void						add_to_deleted(t_shell *shell, t_params *del)
+{
+	t_params				*tmp;
+
+	tmp = shell->deleted;
+	del->cursor = FALSE;
+	if (!tmp)
+	{
+		ft_putendl("tmp empty");
+		shell->deleted = del;
+		shell->deleted->d_next = NULL;
+		shell->deleted->d_prev = NULL;
+	}
+	else
+	{
+		while (tmp->d_next)
+			tmp = tmp->d_next;
+		tmp->d_next = del;
+		tmp->d_next->d_prev = tmp;
+		tmp->d_next->d_next = NULL;
+	}
+}
+
 void						delete_key(t_shell *shell)
 {
 	t_params				*tmp;
@@ -29,6 +52,10 @@ void						delete_key(t_shell *shell)
 				tmp->next->cursor = TRUE;
 			else
 				handle_exit(1);
+			ft_putchar('\n');
+			ft_putendl(tmp->name);
+			ft_putchar('\n');
+			add_to_deleted(shell, tmp);
 			ft_list_remove(shell, tmp);
 			deleted = TRUE;
 		}

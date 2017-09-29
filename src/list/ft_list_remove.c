@@ -35,7 +35,7 @@ void						ft_list_remove(t_shell *shell, t_params *del)
 		{
 			r.new_head = shell->list->next;
 			r.new_head->prev = NULL;
-			free_list_item(shell->list);
+			// free_list_item(shell->list);
 			shell->list = r.new_head;
 			return ;
 		}
@@ -45,7 +45,7 @@ void						ft_list_remove(t_shell *shell, t_params *del)
 				prev_next(r.tmp);
 			else
 				r.tmp->prev->next = NULL;
-			free_list_item(del);
+			// free_list_item(del);
 			return ;
 		}
 		else

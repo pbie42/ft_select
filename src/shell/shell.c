@@ -38,6 +38,7 @@ t_shell				*new_shell(void)
 
 	shell = (t_shell *)malloc(sizeof(t_shell));
 	shell->list = NULL;
+	shell->deleted = NULL;
 	shell->tios_old = (struct termios*)malloc(sizeof(struct termios));
 	shell->tios = (struct termios*)malloc(sizeof(struct termios));
 	shell->wsz = (struct winsize*)malloc(sizeof(struct winsize));

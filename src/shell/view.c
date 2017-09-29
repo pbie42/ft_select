@@ -26,12 +26,25 @@ void					ft_put_padding(char *name, int max)
 void					view(t_shell *shell)
 {
 	t_params			*tmp;
+	t_params			*del;
 	int					i;
 
 	get_max(shell);
 	words_per_row(shell);
 	tmp = shell->list;
 	i = 1;
+	if (shell->deleted)
+	{
+		ft_putendl("here bruh");
+		del = shell->deleted;
+		while (del)
+		{
+			ft_putendl(del->name);
+			del = del->d_next;
+		}
+	}
+	else
+		ft_putendl("no deleted");
 	while (tmp)
 	{
 		if (tmp->cursor == TRUE)

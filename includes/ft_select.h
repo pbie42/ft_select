@@ -76,12 +76,15 @@ typedef struct				s_params
 	mode_t					st_mode;
 	struct s_params			*next;
 	struct s_params			*prev;
+	struct s_params			*d_next;
+	struct s_params			*d_prev;
 }							t_params;
 
 typedef struct				s_shell
 {
 	struct winsize			*wsz;
 	t_params				*list;
+	t_params				*deleted;
 	struct termios			*tios_old;
 	struct termios			*tios;
 	int						sizemax;
@@ -154,8 +157,11 @@ typedef struct				s_remove
 }							t_remove;
 
 t_params					*set_params(char **av, char *pwd);
+t_params					*ft_list_end(t_params *list);
 t_shell						*get_shell(void);
 t_shell						*new_shell(void);
+int							putintc(int c);
+int							ft_list_len(t_params *list);
 char						*make_path_fl(char *dir, char *file);
 void						ft_folder_color(t_params *tmp);
 void						ft_folder_color_out(t_params *tmp);
@@ -175,6 +181,7 @@ void						arrow_down(t_shell *shell);
 void						arrow_down_bis(t_down *d, t_shell *shell);
 void						arrow_down_ter(t_down *d, t_shell *shell);
 void						delete_key(t_shell *shell);
+void						undo_key(t_shell *shell);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
@@ -199,8 +206,5 @@ void						handle_resume(int sig);
 void						handle_fpe(int sig);
 void						found_up(t_up *u, t_params *tmp);
 void						found_down(t_down *d);
-int							putintc(int c);
-int							ft_list_len(t_params *list);
-t_params					*ft_list_end(t_params *list);
 
 #endif

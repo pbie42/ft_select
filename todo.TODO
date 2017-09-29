@@ -51,7 +51,11 @@ ft_select:
 				MUST be restored. This is true even after it received a signal (except for the
 				signals that we cannot intercept, but this would mean that your program does not work).
 			Free:
-				☐ Free Everything 0 Leaks!
+				✔ Free Everything 0 Leaks! @done (9/29/2017, 3:34:08 PM)
+				☐ Make sure to free deleted!
 			Selected List:
 						✔ Print after exit @done (2017-9-22 15:31:10)
+		Bonus:
+			✔ Add an undo for deleted items to bring them back to the list. @done (9/29/2017, 6:56:36 PM)
+		
 

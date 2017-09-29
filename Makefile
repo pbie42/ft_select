@@ -23,6 +23,7 @@ SRC = src/main.c \
 			src/keys/enter_key.c \
 			src/keys/keys.c \
 			src/keys/space_key.c \
+			src/keys/undo_key.c \
 			src/list/ft_list_end.c \
 			src/list/ft_list_free.c \
 			src/list/ft_list_len.c \
