@@ -23,6 +23,17 @@ void					ft_put_padding(char *name, int max)
 		ft_putchar(' ');
 }
 
+void					view_print(t_params *tmp, t_shell *shell)
+{
+	if (tmp->cursor == TRUE)
+		ft_cursor_color();
+	else
+		ft_putstr("[ ");
+	ft_print_type(tmp);
+	ft_put_padding(tmp->name, shell->sizemax);
+	ft_putstr(" ]");
+}
+
 void					view(t_shell *shell)
 {
 	t_params			*tmp;
@@ -41,13 +52,7 @@ void					view(t_shell *shell)
 	}
 	while (tmp)
 	{
-		if (tmp->cursor == TRUE)
-			ft_cursor_color();
-		else
-			ft_putstr("[ ");
-		ft_print_type(tmp);
-		ft_put_padding(tmp->name, shell->sizemax);
-		ft_putstr(" ]");
+		view_print(tmp, shell);
 		if (i % shell->wpr == 0)
 			ft_putchar('\n');
 		i++;

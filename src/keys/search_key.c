@@ -6,7 +6,7 @@
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/30 15:16:39 by pbie              #+#    #+#             */
-/*   Updated: 2017/09/30 15:02:31 by pbie             ###   ########.fr       */
+/*   Updated: 2017/09/30 19:03:16 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void						search_key(t_shell *shell, char buf)
 {
 	t_params				*tmp;
 	t_params				*tmp2;
-	t_bool				found;
+	t_bool					found;
 
 	tmp = shell->list;
 	tmp2 = shell->list;

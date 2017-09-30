@@ -150,6 +150,13 @@ typedef struct				s_enter
 	int						i;
 }							t_enter;
 
+typedef struct				s_undo
+{
+	t_params				*tmp;
+	t_params				*tmp2;
+	t_params				*undo;
+}							t_undo;
+
 typedef struct				s_remove
 {
 	t_params				*tmp;
