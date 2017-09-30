@@ -35,16 +35,10 @@ void					view(t_shell *shell)
 	i = 1;
 	if (shell->deleted)
 	{
-		ft_putendl("here bruh");
 		del = shell->deleted;
 		while (del)
-		{
-			ft_putendl(del->name);
 			del = del->d_next;
-		}
 	}
-	else
-		ft_putendl("no deleted");
 	while (tmp)
 	{
 		if (tmp->cursor == TRUE)

@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_free.c                                     :+:      :+:    :+:   */
+/*   select_key.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbie <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/19 15:16:39 by pbie              #+#    #+#             */
-/*   Updated: 2016/05/19 15:19:09 by pbie             ###   ########.fr       */
+/*   Created: 2017/09/30 15:16:39 by pbie              #+#    #+#             */
+/*   Updated: 2017/09/30 15:02:31 by pbie             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void				ft_list_free(t_params *list)
+void						select_key(t_shell *shell)
 {
-	t_params			*curr;
+	t_params				*tmp;
 
-	while ((curr = list) != NULL)
+	tmp = shell->list;
+	while (tmp)
 	{
-		list = list->next;
-		free(curr->name);
-		free(curr);
+		tmp->selected = TRUE;
+		tmp = tmp->next;
 	}
 }
 
-void				ft_deleted_free(t_params *list)
+void						deselect_key(t_shell *shell)
 {
-	t_params			*curr;
+	t_params				*tmp;
 
-	while ((curr = list) != NULL)
+	tmp = shell->list;
+	while (tmp)
 	{
-		list = list->d_next;
-		free(curr->name);
-		free(curr);
+		tmp->selected = FALSE;
+		tmp = tmp->next;
 	}
 }

@@ -18,5 +18,6 @@ void						ft_shell_free(t_shell *shell)
 	free(shell->tios_old);
 	free(shell->wsz);
 	ft_list_free(shell->list);
+	ft_deleted_free(shell->deleted);
 	free(shell);
 }

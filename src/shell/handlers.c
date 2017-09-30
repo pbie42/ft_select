@@ -21,6 +21,7 @@ void						handle_exit(int sig)
 	shell = get_shell();
 	shell_env_off(shell);
 	ft_list_free(shell->list);
+	ft_deleted_free(shell->deleted);
 	exit(0);
 }
 
