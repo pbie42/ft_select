@@ -14,6 +14,14 @@
 
 void						keys(char *buf, t_shell *shell)
 {
+	// ft_putendnbr("buf[0] = ", buf[0]);
+	// ft_putendnbr("buf[1] = ", buf[1]);
+	// ft_putendnbr("buf[2] = ", buf[2]);
+	// ft_putendnbr("buf[3] = ", buf[3]);
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 72 && buf[3] == 0)
+		select_key(shell);
+	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 70 && buf[3] == 0)
+		deselect_key(shell);
 	if (buf[0] == 27 && buf[1] == 0 && buf[2] == 0 && buf[3] == 0)
 		handle_exit(1);
 	else if (buf[0] == 27)
