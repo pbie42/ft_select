@@ -184,6 +184,7 @@ void						delete_key(t_shell *shell);
 void						undo_key(t_shell *shell);
 void						select_key(t_shell *shell);
 void						deselect_key(t_shell *shell);
+void						search_key(t_shell *shell, char buf);
 void						ft_print_list(t_params *tmp);
 void						updateshell(t_shell *shell);
 void						view(t_shell *shell);

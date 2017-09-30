@@ -42,7 +42,8 @@ int							loop(char **av)
 		tputs(c.cl_string, 1, putintc);
 		keys(buf, shell);
 		view(shell);
-		read(0, buf, 3);
+		bzero(buf, 4);
+		read(0, buf, 4);
 		updateshell(shell);
 	}
 	return (0);

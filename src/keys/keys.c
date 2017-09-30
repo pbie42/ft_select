@@ -24,23 +24,18 @@ void						keys(char *buf, t_shell *shell)
 		deselect_key(shell);
 	if (buf[0] == 27 && buf[1] == 0 && buf[2] == 0 && buf[3] == 0)
 		handle_exit(1);
+	else if (buf[0] == 27 && buf[1] == 91 && buf[2] == 51 && buf[3] == 126)
+		delete_key(shell);
+	else if (buf[0] == 127 && buf[1] == 0 && buf[2] == 0 && buf[3] == 0)
+		delete_key(shell);
+	else if (buf[0] == 27 && buf[1] == 91 && buf[2] == 53 && buf[3] == 126)
+		undo_key(shell);
 	else if (buf[0] == 27)
 		arrows(buf, shell);
 	else if (buf[0] == 10)
 		enter_key(shell);
 	else if (buf[0] == 32)
 		space_key(shell);
-	else if (buf[0] == 126 && buf[1] == 91 && buf[2] == 53 && buf[3] == 0)
-		undo_key(shell);
-	else if (buf[0] == 126)
-		delete_key(shell);
-	else if (buf[0] == 127)
-		delete_key(shell);
-	else
-	{
-		ft_putendnbr("buf[0] = ", buf[0]);
-		ft_putendnbr("buf[1] = ", buf[1]);
-		ft_putendnbr("buf[2] = ", buf[2]);
-		ft_putendnbr("buf[3] = ", buf[3]);
-	}
+	else if (ft_isalnum(buf[0]))
+		search_key(shell, buf[0]);
 }
