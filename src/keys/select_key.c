@@ -16,6 +16,8 @@ void						select_key(t_shell *shell)
 {
 	t_params				*tmp;
 
+	free(shell->search);
+	shell->search = NULL;
 	tmp = shell->list;
 	while (tmp)
 	{
@@ -28,6 +30,8 @@ void						deselect_key(t_shell *shell)
 {
 	t_params				*tmp;
 
+	free(shell->search);
+	shell->search = NULL;
 	tmp = shell->list;
 	while (tmp)
 	{

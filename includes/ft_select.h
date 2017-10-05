@@ -87,6 +87,7 @@ typedef struct				s_shell
 	t_params				*deleted;
 	struct termios			*tios_old;
 	struct termios			*tios;
+	char					*search;
 	int						sizemax;
 	int						wpr;
 }							t_shell;
@@ -162,6 +163,14 @@ typedef struct				s_remove
 	t_params				*tmp;
 	t_params				*new_head;
 }							t_remove;
+
+typedef struct				s_search
+{
+	t_params				*tmp;
+	t_params				*tmp2;
+	t_bool					found;
+	size_t					l;
+}							t_search;
 
 t_params					*set_params(char **av, char *pwd);
 t_params					*ft_list_end(t_params *list);

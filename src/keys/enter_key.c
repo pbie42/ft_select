@@ -33,6 +33,8 @@ void						enter_key(t_shell *shell)
 {
 	t_enter				e;
 
+	free(shell->search);
+	shell->search = NULL;
 	shell_env_off(shell);
 	e.amnt_selected = 0;
 	e.i = 0;

@@ -59,6 +59,8 @@ void						undo_key(t_shell *shell)
 {
 	t_undo				u;
 
+	free(shell->search);
+	shell->search = NULL;
 	u.tmp = shell->deleted;
 	if (!u.tmp)
 		return ;

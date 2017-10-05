@@ -35,7 +35,6 @@ t_params				*list_single(char *name, char *pwd)
 	if (lstat(s.nw_path, &s.fstat) < 0)
 	{
 		free(s.nw_path);
-		ft_putendl("invalid");
 		return (invalid_single(name));
 	}
 	free(s.nw_path);

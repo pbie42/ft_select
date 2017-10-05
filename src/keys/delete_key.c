@@ -39,6 +39,8 @@ void						delete_key(t_shell *shell)
 	t_params				*tmp;
 	t_bool					deleted;
 
+	free(shell->search);
+	shell->search = NULL;
 	deleted = FALSE;
 	tmp = shell->list;
 	while (tmp && deleted == FALSE)

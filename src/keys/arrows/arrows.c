@@ -51,6 +51,8 @@ void						arrows(char *buf, t_shell *shell)
 	t_shell					*shell2;
 
 	shell2 = shell;
+	free(shell->search);
+	shell->search = NULL;
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 65 && buf[3] == 0)
 		arrow_up(shell);
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 66 && buf[3] == 0)

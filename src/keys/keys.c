@@ -32,6 +32,6 @@ void						keys(char *buf, t_shell *shell)
 		enter_key(shell);
 	else if (buf[0] == 32)
 		space_key(shell);
-	else if (ft_isalnum(buf[0]))
+	else if (ft_isascii(buf[0]))
 		search_key(shell, buf[0]);
 }

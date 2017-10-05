@@ -17,6 +17,8 @@ void					space_key(t_shell *shell)
 	t_params			*tmp;
 
 	tmp = shell->list;
+	free(shell->search);
+	shell->search = NULL;
 	while (tmp)
 	{
 		if (tmp->cursor == TRUE)
