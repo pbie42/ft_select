@@ -14,6 +14,8 @@
 
 void						keys(char *buf, t_shell *shell)
 {
+	if (buf[0] == 4)
+		handle_exit(0);
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 72 && buf[3] == 0)
 		select_key(shell);
 	if (buf[0] == 27 && buf[1] == 91 && buf[2] == 70 && buf[3] == 0)
