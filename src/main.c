@@ -57,7 +57,7 @@ int							main(int ac, char **av, char **ev)
 	(void)ac;
 	(void)ev;
 	if (!av[1])
-		ft_exit("Please enter at least one argument");
+		return (0);
 	if ((term_type = getenv("TERM")) == NULL)
 		return (-1);
 	if (term_type == 0)
