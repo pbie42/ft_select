@@ -32,9 +32,7 @@ SRC = src/main.c \
 			src/list/ft_list_remove.c \
 			src/list/params.c \
 			src/print/print.c \
-			src/print/print_out.c \
 			src/print/printcolor.c \
-			src/print/printcolor_out.c \
 			src/shell/environments.c \
 			src/shell/ft_shell_free.c \
 			src/shell/handlers.c \
