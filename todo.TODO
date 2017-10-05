@@ -42,17 +42,17 @@ ft_select:
 					✔ without seeing any changes in its behavior. @done (2017-9-24 15:27:12)
 				✔ Fix circling when going up @done (9/29/2017, 3:26:13 PM)
 		Terminal:
-			☐ If the program is launched in an empty environment, you need to behave reasonably.
+			✔ If the program is launched in an empty environment, you need to behave reasonably. @done (2017-10-5 16:41:42)
 			Resize:
 				✔ If too small must show something saying so. @done (2017-9-24 16:28:46)
 				✔ Must resume normal functionality once enough size is given @done (2017-9-24 16:28:47)
 		Exit:
-			☐ Whichever way your program ends, the default configuration of your terminal
-				MUST be restored. This is true even after it received a signal (except for the
-				signals that we cannot intercept, but this would mean that your program does not work).
+			✔ Whichever way your program ends, the default configuration of your terminal @done (2017-10-5 16:41:43)
+				✔ MUST be restored. This is true even after it received a signal (except for the @done (2017-10-5 16:41:47)
+				✔ signals that we cannot intercept, but this would mean that your program does not work). @done (2017-10-5 16:41:50)
 			Free:
 				✔ Free Everything 0 Leaks! @done (9/29/2017, 3:34:08 PM)
-				☐ Make sure to free deleted!
+				✔ Make sure to free deleted! @done (2017-10-5 16:41:51)
 			Selected List:
 						✔ Print after exit @done (2017-9-22 15:31:10)
 		Bonus:
