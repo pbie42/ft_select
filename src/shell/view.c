@@ -20,7 +20,7 @@ void					ft_put_padding(char *name, int max)
 	i = -1;
 	diff = max - ft_strlen(name);
 	while (++i < diff)
-		ft_putchar(' ');
+		ft_putchar_fd(' ', 0);
 }
 
 void					view_print(t_params *tmp, t_shell *shell)
@@ -28,10 +28,10 @@ void					view_print(t_params *tmp, t_shell *shell)
 	if (tmp->cursor == TRUE)
 		ft_cursor_color();
 	else
-		ft_putstr("[ ");
+		ft_putstr_fd("[ ", 0);
 	ft_print_type(tmp);
 	ft_put_padding(tmp->name, shell->sizemax);
-	ft_putstr(" ]");
+	ft_putstr_fd(" ]", 0);
 }
 
 void					view(t_shell *shell)
@@ -54,7 +54,7 @@ void					view(t_shell *shell)
 	{
 		view_print(tmp, shell);
 		if (i % shell->wpr == 0)
-			ft_putchar('\n');
+			ft_putchar_fd('\n', 0);
 		i++;
 		tmp = tmp->next;
 	}

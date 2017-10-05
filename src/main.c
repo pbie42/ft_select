@@ -56,6 +56,15 @@ int							main(int ac, char **av, char **ev)
 
 	(void)ac;
 	(void)ev;
+	// if (isatty(0))
+	// 	ft_putstr_fd("the standard input is from a terminal\n", 0);
+	// else
+	// 	ft_putstr_fd("the standard input is NOT from a terminal\n", 0);
+	// if (isatty(1))
+	// 	ft_putstr_fd("the standard output is to a terminal\n", 0);
+	// else
+	// 	ft_putstr_fd("the standard input is NOT to a terminal\n", 0);
+	// // exit(0);
 	if (!av[1])
 		ft_exit("Please enter at least one argument");
 	if ((term_type = getenv("TERM")) == NULL)

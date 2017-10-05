@@ -197,7 +197,6 @@ void						updateshell(t_shell *shell);
 void						view(t_shell *shell);
 void						get_max(t_shell *shell);
 void						ft_print_type(t_params *tmp);
-void						ft_print_type_out(t_params *tmp);
 void						keys(char *buf, t_shell *shell);
 void						ft_signal(void);
 void						shell_env_on(t_shell *shell);

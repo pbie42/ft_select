@@ -14,21 +14,15 @@
 
 void			ft_folder_color_out(t_params *tmp)
 {
-	ft_putstr_fd(CYAN, 1);
 	ft_putstr_fd(tmp->name, 1);
-	ft_putstr_fd(STOP, 1);
 }
 
 void			ft_exec_color_out(t_params *tmp)
 {
-	ft_putstr_fd(RED, 1);
 	ft_putstr_fd(tmp->name, 1);
-	ft_putstr_fd(STOP, 1);
 }
 
 void			ft_symlink_color_out(t_params *tmp)
 {
-	ft_putstr_fd(MAGENTA, 1);
 	ft_putstr_fd(tmp->name, 1);
-	ft_putstr_fd(STOP, 1);
 }

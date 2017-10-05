@@ -18,7 +18,7 @@ void						enter_key_bis(t_enter *e)
 	{
 		if (e->tmp2->selected)
 		{
-			ft_print_type_out(e->tmp2);
+			ft_putstr_fd(e->tmp2->name, 1);
 			if (e->i < e->amnt_selected - 1)
 			{
 				ft_putstr_fd(" ", 1);
@@ -46,7 +46,7 @@ void						enter_key(t_shell *shell)
 	e.tmp2 = shell->list;
 	enter_key_bis(&e);
 	if (e.tmp2->selected)
-		ft_print_type_out(e.tmp2);
+		ft_putstr_fd(e.tmp2->name, 1);
 	ft_shell_free(shell);
 	exit(1);
 }

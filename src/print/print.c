@@ -25,14 +25,14 @@ void					ft_print_type(t_params *tmp)
 	else if (S_ISREG((tmp)->st_mode))
 	{
 		if (tmp->selected == TRUE)
-			ft_putstr(INVWHITE);
+			ft_putstr_fd(INVWHITE, 0);
 		if (tmp->cursor == TRUE)
-			ft_putstr(BWHITE);
-		ft_putstr((tmp)->name);
-		ft_putstr(STOP);
+			ft_putstr_fd(BWHITE, 0);
+		ft_putstr_fd((tmp)->name, 0);
+		ft_putstr_fd(STOP, 0);
 	}
 	else
-		ft_putstr((tmp)->name);
+		ft_putstr_fd((tmp)->name, 0);
 }
 
 void					ft_print_list(t_params *tmp)

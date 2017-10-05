@@ -17,7 +17,6 @@ void						handle_exit(int sig)
 	t_shell	*shell;
 
 	(void)sig;
-	ft_putendl("handle exit");
 	shell = get_shell();
 	shell_env_off(shell);
 	ft_list_free(shell->list);
@@ -48,7 +47,7 @@ void						handle_pause(int sig)
 	shell_env_off(shell);
 	signal(SIGTSTP, SIG_DFL);
 	ioctl(0, TIOCSTI, buf);
-	ft_putstr(" ");
+	ft_putstr_fd(" ", 0);
 }
 
 void						handle_resume(int sig)
@@ -72,7 +71,7 @@ void						handle_fpe(int sig)
 	shell = get_shell();
 	tputs(tgetstr("cl", NULL), 1, putintc);
 	if (shell->sizemax + 4 > shell->wsz->ws_col)
-		ft_putendl("TOO SMALL!!");
+		ft_putendl_fd("TOO SMALL!!", 0);
 	else
 		view(shell);
 }

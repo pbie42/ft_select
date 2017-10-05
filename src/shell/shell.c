@@ -48,6 +48,8 @@ t_shell				*new_shell(void)
 	tcgetattr(0, shell->tios);
 	shell->tios->c_lflag &= ~(ICANON);
 	shell->tios->c_lflag &= ~(ECHO);
+	shell->tios->c_cc[VMIN] = 1;
+	shell->tios->c_cc[VTIME] = 100;
 	shell_env_on(shell);
 	return (shell);
 }
